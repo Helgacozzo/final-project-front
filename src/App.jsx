@@ -5,11 +5,13 @@ import Home from './pages/Home';
 import Events from './Pages/Events';
 import NotFound from './Pages/NotFound';
 
+
 function App() {
-  
+
   return (
     (
       <>
+
         <Navbar />
 
         <Routes>

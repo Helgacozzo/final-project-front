@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../assets/Logo.png'
 import './Navbar.scss';
 
 export default function Navbar() {
@@ -7,9 +8,21 @@ export default function Navbar() {
 
     <nav className='navbar'>
 
-      <figure>
-        {/* <a href="/"><img src="" alt="" /></a> */}
+      <div className='menu'>
+        <ul>
+          <li><a href="/albums">Events</a></li>
+          <li><a href="/musicians">Tarots</a></li>
+          <li><a href="/musicians">Experience</a></li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <figure className='logo'>
+        <a href="/"><img src={Logo} alt="" /></a>
       </figure>
+
+      <hr />
 
       <div className='menu'>
         <ul>
@@ -22,5 +35,5 @@ export default function Navbar() {
     </nav>
 
   );
-  
+
 }

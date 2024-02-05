@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Cinzel+Decorative&family=Julius+Sans+One&family=Poiret+One&display=swap');
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 85vh;
-    text-align: center;
 }
 
-.title{
-    font-size: 10rem;
+.title {
+    font-size: 4rem;
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: 800;
+    letter-spacing: -5px;
+    text-align: center;
+    padding-top: 400px;
 }

@@ -1,15 +1,19 @@
+@import 'animate.css';
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
-    margin: 20px 35px;
+    padding: 20px 40px;
+    border-bottom: rgba(255, 255, 255, 0.474) 1px solid;
     gap: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
-    background-color: rgba(255, 255, 255, 0.27);
-    border-radius: 5rem;
+    background-color: rgba(0, 0, 0, 0.347);
     backdrop-filter: blur(4px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(7, 1, 23, 0.358);
+    animation: fadeInDown;
+    animation-duration: 2s;
 
     .menu {
         ul {
@@ -25,12 +29,41 @@
             a {
                 text-decoration: none;
                 color: #ffffff;
-                transition: color 0.3s ease;
+                position: relative;
+                overflow: hidden;
+
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: white;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: transform 0.3s ease-in-out;
+                }
 
                 &:hover {
-                    color: #000000;
+                    color: white;
+
+                    &:before {
+                        transform: scaleX(1);
+                        transform-origin: left;
+                    }
                 }
             }
         }
     }
+}
+
+.logo img {
+    width: 150px;
+}
+
+hr {
+    border-bottom: white 0.5px solid;
+    width: 300px;
 }

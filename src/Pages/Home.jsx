@@ -6,7 +6,7 @@ export default function Home() {
 
         <div className='container'>
 
-            <h1 className='title'>Ethereal</h1>
+            <h2 className='title'>Your spiritual Experiences</h2>
 
         </div>
 
