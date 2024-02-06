@@ -10,9 +10,9 @@ export default function Navbar() {
 
       <div className='menu'>
         <ul>
-          <li><a href="/albums">Events</a></li>
-          <li><a href="/musicians">Tarots</a></li>
-          <li><a href="/musicians">Experience</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="">Tarots</a></li>
+          <li><a href="">Experience</a></li>
         </ul>
       </div>
 
@@ -26,9 +26,9 @@ export default function Navbar() {
 
       <div className='menu'>
         <ul>
-          <li><a href="/albums">Events</a></li>
-          <li><a href="/musicians">Tarots</a></li>
-          <li><a href="/musicians">Experience</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="">Tarots</a></li>
+          <li><a href="">Experience</a></li>
         </ul>
       </div>
 
