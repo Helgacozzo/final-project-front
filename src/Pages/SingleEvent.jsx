@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NotFound from "./NotFound";
 import { useParams } from 'react-router-dom';
+import "./SingleEvent.scss";
+
 const { VITE_API_URL } = import.meta.env;
 
 const SingleEvent = () => {
 
   const { id } = useParams();
+
   const [event, setEvent] = useState();
   const [error, setError] = useState();
 
@@ -24,12 +27,22 @@ const SingleEvent = () => {
   }
 
   return (
-    <div>
+
+    <div className="single-event-container">
+
       <h1>{event.title}</h1>
-      <p>{event.description}</p>
-      <p>Data: {event.date}</p>
+
+      <div className="single-event-content">
+
+        <p>{event.description}</p>
+        <p>Data: {event.date}</p>
+
+      </div>
+
     </div>
+
   );
+  
 };
 
 export default SingleEvent;
