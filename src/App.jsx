@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Events from './Pages/Events';
 import SingleEvent from './Pages/SingleEvent';
 import NotFound from './Pages/NotFound';
+import Sidebar from './Components/SideBar';
 
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
     return (
         <>
             <Navbar />
+            <Sidebar/>
 
             <Routes>
 

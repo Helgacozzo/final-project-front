@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Cinzel+Decorative&family=Julius+Sans+One&family=Poiret+One&display=swap');
 
 .container {
-    height: 85vh;
+    height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .title {
@@ -10,5 +17,40 @@
     font-weight: 800;
     letter-spacing: -5px;
     text-align: center;
-    padding-top: 400px;
+}
+
+.button-home {
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    font-size: 1rem;
+    border: 1px solid white;
+    padding: 20px 20px;
+    border-radius: 50px;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.548);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 6px rgba(7, 1, 23, 0.358);
+    text-transform: uppercase;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, padding 0.3s;
+    animation: fadeIn;
+    animation-duration: 2s;
+
+    .fa-arrow-right {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+        background-color: rgba(180, 55, 101, 0.548);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.358);
+        transform: scale(1.1);
+        padding: 10px 20px;
+
+        .fa-arrow-right {
+            transform: translateX(5px);
+        }
+    }
 }

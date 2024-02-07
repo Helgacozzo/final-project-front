@@ -2,68 +2,55 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 20px 40px;
+    padding: 10px 30px;
     border-bottom: rgba(255, 255, 255, 0.474) 1px solid;
     gap: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
-    background-color: rgba(0, 0, 0, 0.347);
+    background-color: rgba(0, 0, 0, 0.548);
     backdrop-filter: blur(4px);
     box-shadow: 0 4px 6px rgba(7, 1, 23, 0.358);
     animation: fadeInDown;
     animation-duration: 2s;
+}
 
-    .menu {
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-
-            li {
-                margin-right: 20px;
-            }
-
-            a {
-                text-decoration: none;
-                color: #ffffff;
-                position: relative;
-                overflow: hidden;
-
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 2px;
-                    background-color: white;
-                    transform: scaleX(0);
-                    transform-origin: left;
-                    transition: transform 0.3s ease-in-out;
-                }
-
-                &:hover {
-                    color: white;
-
-                    &:before {
-                        transform: scaleX(1);
-                        transform-origin: left;
-                    }
-                }
-            }
-        }
-    }
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .logo img {
-    width: 150px;
+    width: 130px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 hr {
-    border-bottom: white 0.5px solid;
-    width: 300px;
+    border-top: white 0.25px solid;
+    border-bottom: none;
+    width: 30%;
+}
+
+
+
+// MEDIA QUERIES
+
+@media (max-width: 960px) {
+
+    .logo-container {
+        padding-left: 40px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .logo-container {
+        padding-left: 0;
+    }
+
 }

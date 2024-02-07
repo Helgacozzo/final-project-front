@@ -8,30 +8,14 @@ export default function Navbar() {
 
     <nav className='navbar'>
 
-      <div className='menu'>
-        <ul>
-          <li><a href="/events">Events</a></li>
-          <li><a href="">Tarots</a></li>
-          <li><a href="">Experience</a></li>
-        </ul>
+      <div className='logo-container'>
+        <hr />
+        <figure className='logo'>
+          <a href="/"><img src={Logo} alt="Ethereal" /></a>
+        </figure>
+        <hr />
       </div>
-
-      <hr />
-
-      <figure className='logo'>
-        <a href="/"><img src={Logo} alt="" /></a>
-      </figure>
-
-      <hr />
-
-      <div className='menu'>
-        <ul>
-          <li><a href="/events">Events</a></li>
-          <li><a href="">Tarots</a></li>
-          <li><a href="">Experience</a></li>
-        </ul>
-      </div>
-
+      
     </nav>
 
   );

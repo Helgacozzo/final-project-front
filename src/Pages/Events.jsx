@@ -46,7 +46,7 @@ const EventsPage = () => {
     };
 
     return (
-
+<div className="BkContainer">
         <div className="events-container">
 
             <h1>Eventi</h1>
@@ -91,7 +91,7 @@ const EventsPage = () => {
                                 onChange={handleChange}
                                 required />
 
-                            <button type="submit">Crea Evento</button>
+                            <button className="organize-button" type="submit">Crea Evento</button>
 
                         </form>
                     </div>
@@ -113,6 +113,7 @@ const EventsPage = () => {
 
             </div>
 
+        </div>
         </div>
     );
 }
