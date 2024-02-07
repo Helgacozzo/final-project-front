@@ -11,7 +11,7 @@ const SingleEvent = () => {
   const { id } = useParams();
 
   const [event, setEvent] = useState();
-  const [error, setError] = useState();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     axios.get(`${VITE_API_URL}/events/${id}`)
@@ -19,10 +19,10 @@ const SingleEvent = () => {
       .catch(err => {
         console.error(err);
         setError(true);
-      })
+      });
   }, [id]);
 
-  if (error || event === null) {
+  if (error || !event) {
     return <NotFound />;
   }
 

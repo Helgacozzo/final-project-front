@@ -14,7 +14,12 @@
     box-shadow: 0 4px 6px rgba(7, 1, 23, 0.358);
     animation: fadeInDown;
     animation-duration: 2s;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
 }
+
 
 .logo-container {
     display: flex;
@@ -47,7 +52,7 @@ hr {
 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 640px) {
 
     .logo-container {
         padding-left: 0;
