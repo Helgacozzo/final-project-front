@@ -15,15 +15,8 @@ const EventsPage = () => {
         description: '',
         date: '',
         time: '',
-        location: ''
+        location: '',
     });
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
 
     useEffect(() => {
         axios.get(`${VITE_API_URL}/events`)
@@ -46,7 +39,7 @@ const EventsPage = () => {
                     description: '',
                     date: '',
                     time: '',
-                    location: ''
+                    location: '',
                 });
             })
             .catch(error => {
@@ -54,8 +47,13 @@ const EventsPage = () => {
                 setError(error.response.data.message);
             });
     };
-    
 
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
 
 
     return (
@@ -140,6 +138,8 @@ const EventsPage = () => {
                             <h2>{event.title}</h2>
                             <p>{event.description}</p>
                             <p>Data: {event.date}</p>
+                            <p>Time: {event.time}</p>
+                            <p>Location: {event.location}</p>
                         </div>
 
                     ))}
