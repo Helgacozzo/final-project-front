@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import dayjs from 'dayjs';
+import 'dayjs/locale/it';
+import { IoLocationSharp } from "react-icons/io5";
 import "./Events.scss";
 
 const { VITE_API_URL } = import.meta.env;
 
 const EventsPage = () => {
+
+    dayjs.locale('it');
 
     const [events, setEvents] = useState([]);
     const [error, setError] = useState();
@@ -26,7 +31,6 @@ const EventsPage = () => {
                 setError(err.message);
             });
     }, []);
-
 
     const handleSubmit = (e) => {
         axios.post(`${VITE_API_URL}/events`, formData)
@@ -55,9 +59,10 @@ const EventsPage = () => {
         });
     };
 
-
     return (
+
         <div className="BkContainer">
+
             <div className="events-container">
 
                 <h1>Eventi</h1>
@@ -132,14 +137,30 @@ const EventsPage = () => {
                 {error && <p className="error-message">Si è verificato un errore: {error}</p>}
 
                 <div className="event-grid">
-
                     {events.map(event => (
                         <div key={event._id} className="event-card">
-                            <h2>{event.title}</h2>
-                            <p>{event.description}</p>
-                            <p>Data: {event.date}</p>
-                            <p>Time: {event.time}</p>
-                            <p>Location: {event.location}</p>
+                            <div className="info-container">
+                                <div className="event-date">
+                                    <p className="day">{dayjs(event.date).format('D')}</p>
+                                    <div className="month-year">
+                                        <p className="month">{dayjs(event.date).format('MMMM')}</p>
+                                        <p className="year">{dayjs(event.date).format('YYYY')}</p>
+                                    </div>
+                                </div>
+                                <div className="event-time">
+                                    <p>{event.time}</p>
+                                </div>
+                            </div>
+
+                            <div className="event-details">
+                                <h2>{event.title}</h2>
+                                <p>{event.description}</p>
+                                <div className="location">
+                                    <IoLocationSharp className="location-icon" />
+                                    <p>{event.location}</p>
+                                </div>
+                            </div>
+
                         </div>
 
                     ))}
@@ -147,8 +168,11 @@ const EventsPage = () => {
                 </div>
 
             </div>
+
         </div>
+
     );
+    
 }
 
 export default EventsPage;

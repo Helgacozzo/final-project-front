@@ -5,8 +5,11 @@ import { FaTwitter } from "react-icons/fa";
 import './SideBar.scss';
 
 export default function Sidebar() {
+
   return (
+
     <nav className='sidebar'>
+
       <div className='socialMenu'>
         <ul>
           <li><a href="https://www.instagram.com/"><FaInstagram /></a></li>
@@ -14,6 +17,9 @@ export default function Sidebar() {
           <li><a href="https://twitter.com/"><FaTwitter /></a></li>
         </ul>
       </div>
+
     </nav>
+
   );
+  
 }
