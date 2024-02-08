@@ -12,7 +12,7 @@
     overflow-y: auto;
 }
 
-.info-container{
+.info-container {
     background-color: white;
 }
 
@@ -37,8 +37,8 @@
 .event-date {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    text-align: center; 
+    align-items: center;
+    text-align: center;
 }
 
 .event-date .day {
@@ -60,11 +60,11 @@
 .event-date .month,
 .event-date .day,
 .event-date .year {
-    color: black; 
+    color: black;
 }
 
 .event-time {
-    background-color:rgb(207, 60, 114);
+    background-color: rgb(207, 60, 114);
     color: white;
     margin-top: 15px;
     text-align: center;
@@ -80,13 +80,14 @@
 
 .location {
     display: flex;
-    padding-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 30px;
     text-transform: uppercase;
 }
 
 .location-icon {
     font-size: 1rem;
-    color:  rgb(207, 60, 114);
+    color: rgb(207, 60, 114);
     margin-right: 5px;
 }
 
@@ -108,99 +109,6 @@
 .event-card p {
     color: #ffffff;
     font-size: 0.9rem;
-}
-
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-    max-width: 800px;
-    min-width: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-}
-
-.popup h2 {
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding-bottom: 50px;
-    text-align: center;
-}
-
-.popup-content {
-    background-color: #fff;
-    padding: 40px 40px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.488);
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content label {
-    width: 100%;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.popup-content label span {
-    color:  rgb(207, 60, 114);
-    margin-left: 3px;
-}
-
-.popup-content input,
-.popup-content textarea {
-    margin-bottom: 15px;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-}
-
-.popup-content input:focus,
-.popup-content textarea:focus {
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.81);
-}
-
-.popup-content button {
-    width: 100%;
-    border: none;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.81);
-    color: white;
-    font-size: 1rem;
-    text-transform: uppercase;
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, padding 0.3s;
-}
-
-.popup-content button:hover {
-    background-color: rgb(207, 60, 114);
-    backdrop-filter: blur(4px);
-    transform: scale(1.05);
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: #333;
-    font-size: 1.3rem;
-}
-
-.error-message {
-    color: #ff0000;
 }
 
 .center-button {
@@ -225,7 +133,29 @@
         backdrop-filter: blur(4px);
         transform: scale(1.05);
     }
+
 }
+
+.participate-button {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    background-color: rgb(207, 60, 114);
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+
+    &:hover {
+        background-color: rgba(207, 60, 114, 0.8);
+        transform: scale(1.05);
+    }
+}
+
 
 
 // MEDIA QUERIES
@@ -240,7 +170,7 @@
         padding-left: 50px;
     }
 
-    .popup{
+    .popup {
         padding-left: 50px;
     }
 
@@ -260,7 +190,7 @@
         padding-left: 0;
     }
 
-    .popup{
+    .popup {
         padding-left: 0;
     }
 
