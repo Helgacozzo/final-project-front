@@ -6,8 +6,8 @@ const PartecipantPopUp = ({ showParticipantPopUp, onClose }) => {
 
   const [formData, setFormData] = useState({
     name: '',
+    last_name: '',
     email: '',
-    age: ''
   });
 
   const handleChange = (e) => {
@@ -19,14 +19,14 @@ const PartecipantPopUp = ({ showParticipantPopUp, onClose }) => {
   };
 
   const handleSubmit = () => {
-    axios.post('/participants', formData)
+    axios.post(`/participants`, formData)
       .then(() => {
-        alert('Partecipante registrato con successo!');
-        setFormData({ name: '', email: '', age: '' });
+        alert(`Partecipante registrato con successo!`);
+        setFormData({ name: '', last_name: ' ', email: '' });
         onClose();
       })
       .catch((error) => {
-        console.error('Errore durante la registrazione del partecipante', error);
+        console.error(`Errore durante la registrazione del partecipante`, error);
       });
   };
 
@@ -60,7 +60,7 @@ const PartecipantPopUp = ({ showParticipantPopUp, onClose }) => {
             <input
               type="text"
               name="name"
-              value={formData.name}
+              value={formData.last_name}
               onChange={handleChange}
               required />
           </div>

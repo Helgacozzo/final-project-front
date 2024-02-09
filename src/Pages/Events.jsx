@@ -40,7 +40,7 @@ const Events = () => {
     const handleSubmit = () => {
         axios.post(`${VITE_API_URL}/events`, formData)
             .then(response => {
-                console.log('Event created:', response.data);
+                console.log(`Evento creato:`, response.data);
                 setEvents(prevEvents => [...prevEvents, response.data]);
                 setShowOrganizerPopUp(false);
                 setFormData({
@@ -52,7 +52,7 @@ const Events = () => {
                 });
             })
             .catch(error => {
-                console.error('Event creation failed:', error.response.data.message);
+                console.error(`La creazione dell'evento non è andato a buon fine:`, error.response.data.message);
                 setError(error.response.data.message);
             });
     };
@@ -72,7 +72,7 @@ const Events = () => {
 
     return (
 
-        <div className="BkContainer">
+        <div className="Background-Container">
 
             <div className="events-container">
 
@@ -125,7 +125,7 @@ const Events = () => {
                     ))}
 
                 </div>
-                {error && <p className="error-message">Si è verificato un errore: {error}</p>}
+                {error && <p className="error">Si è verificato un errore: {error}</p>}
             </div>
 
             {showParticipantPopUp && selectedEventId && (
