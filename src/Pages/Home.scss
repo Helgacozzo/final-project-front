@@ -10,12 +10,19 @@
     gap: 1rem;
 }
 
+.container>img {
+    width: 70%;
+    padding-right: 70px;
+}
+
 .title {
-    font-size: 4rem;
+    font-size: 250%;
     font-family: "Julius Sans One", sans-serif;
-    font-weight: 800;
-    letter-spacing: -5px;
     text-align: center;
+}
+
+.button-container {
+    padding-left: 20px;
 }
 
 .button-home {
@@ -51,4 +58,43 @@
             transform: translateX(5px);
         }
     }
+}
+
+
+// MEDIA QUERIES
+
+@media (max-width: 960px) {
+
+    .container>img {
+        width: 70%;
+        padding-right: 20px;
+    }
+
+    .title {
+        font-size: 130%;
+        padding-left: 30px;
+    }
+
+    .button-container {
+        padding-left: 50px;
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+
+    .container>img {
+        width: 100%;
+        padding-right: 50px;
+    }
+
+    .title {
+        font-size: 130%;
+        padding-left: 0;
+    }
+
+    .button-container {
+        padding-left: 0;
+    }
+
 }

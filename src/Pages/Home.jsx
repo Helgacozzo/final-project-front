@@ -1,5 +1,6 @@
 import './Home.scss';
 import { FaLongArrowAltRight } from "react-icons/fa";
+import Logo from '../assets/Logo.svg';
 
 export default function Home() {
 
@@ -7,10 +8,12 @@ export default function Home() {
 
         <div className='container'>
 
-            <h2 className='title'>Your spiritual <br /> Experiences</h2>
-            <hr />
-            <a href="/events"><button className='button-home'>Go to Events <div className='fa-arrow-right'><FaLongArrowAltRight /></div></button></a>
+            <img src={Logo} alt="Ethereal" />
+            <h2 className='title'>Your spiritual Experiences</h2>
 
+            <div className='button-container'>
+                <a href="/events"><button className='button-home'>Go to Events <div className='fa-arrow-right'><FaLongArrowAltRight /></div></button></a>
+            </div>
         </div>
 
     );

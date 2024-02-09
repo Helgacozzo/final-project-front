@@ -1,7 +1,7 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { FaBars } from 'react-icons/fa';
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/Logo.svg';
 import './Navbar.scss';
 
 export default function Navbar() {
