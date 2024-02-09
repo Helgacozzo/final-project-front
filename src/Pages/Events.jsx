@@ -99,7 +99,7 @@ const Events = () => {
                         <div key={event._id} className="event-card">
                             <div className="info-container">
                                 <div className="event-date">
-                                    <p className="day">{dayjs(event.date).format('D')}</p>
+                                    <p className="day">{dayjs(event.date).format('DD')}</p>
                                     <div className="month-year">
                                         <p className="month">{dayjs(event.date).format('MMMM')}</p>
                                         <p className="year">{dayjs(event.date).format('YYYY')}</p>

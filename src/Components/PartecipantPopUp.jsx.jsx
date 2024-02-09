@@ -55,23 +55,23 @@ const PartecipantPopUp = ({ showParticipantPopUp, onClose }) => {
           </div>
 
           <div>
+            <label>Cognome:</label>
+            <span>*</span>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required />
+          </div>
+
+          <div>
             <label>Email:</label>
             <span>*</span>
             <input
               type="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
-              required />
-          </div>
-
-          <div>
-            <label>Età:</label>
-            <span>*</span>
-            <input
-              type="number"
-              name="age"
-              value={formData.age}
               onChange={handleChange}
               required />
           </div>
