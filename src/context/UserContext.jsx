@@ -1,13 +1,18 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
-
 const { VITE_API_URL } = import.meta.env;
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
 
-    const [user, setUser] = useState(null);
+    const oldUser = localStorage.getItem('user');
+
+    const [user, setUser] = useState(oldUser ? JSON.parse(oldUser) : null);
+    const changeUser = (newUser) => {
+        setUser(newUser);
+        localStorage.setItem('user', JSON.stringify(newUser));
+    }
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -21,10 +26,10 @@ export const UserProvider = ({ children }) => {
         try{
             const body = {email, password};
             const { data: user } = await axios.post(`${VITE_API_URL}/signup`, body);
-            setUser(user);
+            changeUser(user);
         }catch(error){
             console.error(error);
-            setError(error.response.user);
+            setError(error.response.data);
         }finally{
             setLoading(false);
         }
@@ -41,7 +46,7 @@ export const UserProvider = ({ children }) => {
         try{
             const body = {email, password};
             const { data: user } = await axios.post(`${VITE_API_URL}/login`, body);
-            setUser(user);
+            changeUser(user);
         }catch(error){
             console.error(error);
             setError(error.response.user);
