@@ -1,0 +1,91 @@
+.Background-Container {
+    background: linear-gradient(#00000000 5%, #0000008a 10%, #000000d6 80%);
+    backdrop-filter: blur(4px);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.subtitle {
+    color: white;
+    text-transform: uppercase;
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.form-content {
+    border-radius: 8px;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px;
+
+
+    span {
+        color: rgb(207, 60, 114);
+        margin-left: 3px;
+    }
+
+    label {
+        width: 100%;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    input {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        transition: border-color 0.3s;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+            border: 1px solid rgb(207, 60, 114);
+        }
+    }
+}
+
+.User-button {
+    margin-bottom: 50px;
+    color: white;
+    font-size: 1rem;
+    border: 1px solid rgb(207, 60, 114);
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.81);
+    text-transform: uppercase;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, padding 0.3s;
+    width: 100%;
+
+    &:hover {
+        background-color: rgba(180, 55, 101, 0.548);
+        backdrop-filter: blur(4px);
+        transform: scale(1.05);
+    }
+}
+
+// MEDIA QUERIES
+
+@media (max-width: 960px) {
+
+    .form-content {
+        margin-left: 155px;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    .form-content {
+        margin: 100px;
+    }
+
+}

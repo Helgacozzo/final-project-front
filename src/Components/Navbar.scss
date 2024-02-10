@@ -1,3 +1,5 @@
+@import 'animate.css';
+
 .navbar {
     display: flex;
     justify-content: center;
@@ -42,7 +44,6 @@ hr {
 
 .menu {
     top: 55px;
-    right: 0;
     background-color: rgb(10, 10, 10);
     width: calc(100% - 55px) !important;
     height: 100vh !important;
@@ -50,15 +51,14 @@ hr {
 }
 
 .menu-item {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 57px;
+    margin-top: 100px;
+    padding-bottom: 30px;
     text-transform: uppercase;
     font-size: 3rem;
     text-align: center;
     text-decoration: none;
     color: white;
-    margin-top: 50px;
+    padding-right: 57px;
 }
 
 .menu-item:hover {
@@ -66,8 +66,9 @@ hr {
     transition: 0.3s ease;
 }
 
-.menu-icon {
-    color: white;
+.menu-icon:hover {
+    color: rgb(207, 60, 114);
+    transition: 0.3s ease;
 }
 
 
@@ -76,11 +77,11 @@ hr {
 @media (max-width: 960px) {
 
     .logo-container {
-        padding-left: 40px;
+        padding-left: 55px;
     }
 
     .menu-item {
-        padding-right: 20px;
+        padding-right: 10px;
     }
 
 }

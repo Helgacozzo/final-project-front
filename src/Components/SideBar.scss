@@ -1,3 +1,5 @@
+@import 'animate.css';
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -13,8 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: fadeInLeft;
-    animation-duration: 2s;
+    animation: fadeInLeft 2s;
     transition: width 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     overflow-x: hidden;
     z-index: 1;
