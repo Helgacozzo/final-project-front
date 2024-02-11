@@ -6,6 +6,16 @@
     justify-content: center;
 }
 
+.link{
+    color: rgb(207, 60, 114);
+}
+
+.link:hover{
+    color: rgba(180, 55, 101, 0.548);
+    backdrop-filter: blur(4px);
+    transition: color 0.3s, transform 0.3s;
+}
+
 .subtitle {
     color: white;
     text-transform: uppercase;

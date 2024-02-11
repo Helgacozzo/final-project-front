@@ -8,13 +8,15 @@ const { VITE_API_URL } = import.meta.env;
 
 const SingleEvent = () => {
 
+  const { token } = useUser();
+
   const { id } = useParams();
 
   const [event, setEvent] = useState();
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    axios.get(`${VITE_API_URL}/events/${id}`)
+    axios.get(`${VITE_API_URL}/events/${id}`, axiosOptions(token))
       .then(res => setEvent(res.data))
       .catch(err => {
         console.error(err);
@@ -42,7 +44,7 @@ const SingleEvent = () => {
     </div>
 
   );
-  
+
 };
 
 export default SingleEvent;

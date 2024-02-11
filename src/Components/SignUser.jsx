@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./SignUser.scss";
-import { useUser } from '../context/UserContext'; 
+import { useUser } from '../context/UserContext';
 
 const SignUser = ({ type }) => {
 
   const title = type === 'login' ? 'Log In' : 'Sign Up';
+  const oppositeType = type === 'login' ? 'signup' : 'login';
 
-  const { signUp, logIn, error } = useUser(); 
+  const { signUp, logIn, error } = useUser();
 
   const [formData, setFormData] = useState({
     email: '',
-    username: '',
     password: '',
     confirmPassword: ''
   });
@@ -24,26 +25,18 @@ const SignUser = ({ type }) => {
 
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
-  const SignUser = async (e) => { 
+  const SignUser = async (e) => {
     e.preventDefault();
-    setConfirmPasswordError('');
-    const { email, username, password, confirmPassword } = formData;
-    if (type === 'signup' && password !== confirmPassword) {
-      setConfirmPasswordError('Passwords do not match.');
-      return;
-    }
-    if (type === 'signup') {
-      try {
-        await signUp(email, password); 
-      } catch (error) {
-        console.error('Sign up error:', error.message);
-      }
+    setConfirmPasswordError(null);
+    const { email, password, confirmPassword } = formData;
+    if (type === 'login') {
+      logIn(email, password);
     } else {
-      try {
-        await logIn(email, password); 
-      } catch (error) {
-        console.error('Log in error:', error.message);
+      if (password !== confirmPassword) {
+        setConfirmPasswordError('Passwords do not match.');
+        return;
       }
+      signUp(email, password);
     }
   };
 
@@ -66,17 +59,6 @@ const SignUser = ({ type }) => {
           </div>
           {type === 'signup' && (
             <>
-              <div>
-                <label>Username:</label>
-                <span>*</span>
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
               <div>
                 <label>Password:</label>
                 <span>*</span>
@@ -117,6 +99,8 @@ const SignUser = ({ type }) => {
           )}
           <button className='User-button' type="submit">{title}</button>
         </form>
+        <p>{type === 'login' ? 'Non hai un account?   ' : 'Hai già un account?   '}
+          <Link className='link' to={`/${oppositeType}`}>{type === 'login' ? 'Registrati' : 'Accedi'}</Link></p>
       </div>
     </div>
   );

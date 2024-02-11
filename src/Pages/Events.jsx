@@ -5,11 +5,15 @@ import 'dayjs/locale/it';
 import { IoLocationSharp } from "react-icons/io5";
 import OrganizerPopUp from "../Components/OrganizerPopUp.jsx";
 import ParticipantPopUp from "../Components/PartecipantPopUp.jsx";
+import { useUser } from "../context/UserContext.jsx";
+import { axiosOptions } from "../lib/utilities.js";
 import "./Events.scss";
 
 const { VITE_API_URL } = import.meta.env;
 
 const Events = () => {
+
+    const { token } = useUser();
 
     dayjs.locale('it');
 
@@ -29,7 +33,7 @@ const Events = () => {
     });
 
     useEffect(() => {
-        axios.get(`${VITE_API_URL}/events`)
+        axios.get(`${VITE_API_URL}/events`, axiosOptions(token))
             .then(res => setEvents(res.data))
             .catch(err => {
                 console.error(err);

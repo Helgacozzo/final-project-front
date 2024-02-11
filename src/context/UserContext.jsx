@@ -1,36 +1,38 @@
 import { createContext, useContext, useState } from "react";
-import axios from "axios";
+import axios from 'axios';
 const { VITE_API_URL } = import.meta.env;
+
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
 
-    const oldUser = localStorage.getItem('user');
+    const oldData = localStorage.getItem('data');
 
-    const [user, setUser] = useState(oldUser ? JSON.parse(oldUser) : null);
-    const changeUser = (newUser) => {
-        setUser(newUser);
-        localStorage.setItem('user', JSON.stringify(newUser));
+    const [data, setData] = useState(oldData ? JSON.parse(oldData) : null);
+    const changeData = (newData) => {
+        setData(newData);
+        localStorage.setItem('data', JSON.stringify(newData))
     }
+
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const signUp = async (email, password) => {
 
-        if(loading) return;
+        if (loading) return;
 
         setError(null);
         setLoading(true);
 
-        try{
-            const body = {email, password};
-            const { data: user } = await axios.post(`${VITE_API_URL}/signup`, body);
-            changeUser(user);
-        }catch(error){
+        try {
+            const body = { email, password };
+            const { data } = await axios.post(`${VITE_API_URL}/auth/signup`, body);
+            changeData(data);
+        } catch (error) {
             console.error(error);
             setError(error.response.data);
-        }finally{
+        } finally {
             setLoading(false);
         }
 
@@ -38,30 +40,31 @@ export const UserProvider = ({ children }) => {
 
     const logIn = async (email, password) => {
 
-        if(loading) return;
+        if (loading) return;
 
         setError(null);
         setLoading(true);
 
-        try{
-            const body = {email, password};
-            const { data: user } = await axios.post(`${VITE_API_URL}/login`, body);
-            changeUser(user);
-        }catch(error){
+        try {
+            const body = { email, password };
+            const { data } = await axios.post(`${VITE_API_URL}/auth/login`, body);
+            changeData(data);
+        } catch (error) {
             console.error(error);
-            setError(error.response.user);
-        }finally{
+            setError(error.response.data);
+        } finally {
             setLoading(false);
         }
 
     }
 
     const logOut = () => {
-        setUser(null);
+        setData(null);
+        localStorage.removeItem('data');
     }
 
     const value = {
-        user,
+        ...data,
         signUp,
         logIn,
         logOut,
@@ -78,8 +81,8 @@ export const UserProvider = ({ children }) => {
 
 export const useUser = () => {
     const context = useContext(UserContext);
-    if(context === undefined){
-        throw new Error(`useUser deve essere utilizzato all'interno di un UserProvider.`)
+    if (context === undefined) {
+        throw new Error('useUser must be used within a UserProvider.')
     }
     return context;
 } 

@@ -1,19 +1,16 @@
 .Background-Container {
     background: linear-gradient(#00000000 5%, #0000008a 10%, #000000d6 80%);
     backdrop-filter: blur(4px);
+    margin-top: 50px;
 }
 
 .events-container {
     width: 100%;
+    padding: 4rem;
     color: #333;
     font-family: Arial, sans-serif;
     height: calc(100vh - 50px);
     overflow-y: auto;
-    margin-top: 100px;
-    margin-left: 155px;
-    margin-right: 100px;
-    margin-bottom: 100px;
-
 }
 
 .info-container {
@@ -24,6 +21,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    padding-left: 40px;
 }
 
 .event-card {
@@ -163,10 +161,38 @@
 
 // MEDIA QUERIES
 
+@media (max-width: 960px) {
+
+    .events-container h1 {
+        padding-left: 50px;
+    }
+
+    .center-button {
+        padding-left: 50px;
+    }
+
+    .popup {
+        padding-left: 50px;
+    }
+
+}
+
 @media (max-width: 640px) {
 
-    .events-container {
-        margin: 100px;
+    .events-container h1 {
+        padding-left: 0;
+    }
+
+    .center-button {
+        padding-left: 0;
+    }
+
+    .event-grid {
+        padding-left: 0;
+    }
+
+    .popup {
+        padding-left: 0;
     }
 
 }
