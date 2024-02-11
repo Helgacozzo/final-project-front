@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './PopUp.scss';
 import { Link } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
+import './PopUp.scss';
 
 const PartecipantPopUp = ({ showParticipantPopUp, onClose }) => {
 

@@ -9,6 +9,7 @@ import NotFound from './Pages/NotFound';
 import { useUser } from './context/UserContext'
 import Sidebar from './Components/SideBar';
 import SignUser from './Components/SignUser';
+import "./App.scss";
 
 
 const App = () => {

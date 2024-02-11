@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import Logo from '../assets/Logo.svg';
+import { FaCircleUser } from "react-icons/fa6";
+import { FaRegUserCircle } from "react-icons/fa";
 import { useUser } from '../context/UserContext';
 import { Link, useNavigate } from "react-router-dom";
 import './Navbar.scss';
@@ -9,11 +11,30 @@ import './Navbar.scss';
 const Navbar = () => {
 
   const navigate = useNavigate();
-
   const { user, logOut } = useUser();
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
+
     <nav className='navbar'>
+
+      {user ? (
+        <div>
+          <a className='icon-a' onClick={() => {
+            logOut();
+            navigate('/login');
+          }}><FaCircleUser size={19} /></a>
+        </div>
+      ) : (
+        <div>
+          <Link to="/signup" className='icon-b'><FaRegUserCircle size={19} /></Link>
+        </div>
+      )}
 
       <div className='logo-container'>
         <hr />
@@ -26,26 +47,21 @@ const Navbar = () => {
       </div>
 
       <div className='menu-wrapper'>
-        <FaBars className='menu-icon' />
-        <Menu className='menu' right>
+
+        {isMenuOpen ? (
+          <FaTimes className='menu-icon' size={18} onClick={handleMenuToggle} />
+        ) : (
+          <FaBars className='menu-icon' size={18} onClick={handleMenuToggle} />
+        )}
+
+        <Menu className='menu' right isOpen={isMenuOpen} onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}>
           <Link to="/" className="menu-item">Home</Link>
           <Link to="#" className="menu-item">About</Link>
           <Link to="#" className="menu-item">Contact</Link>
-
-          {user ? (
-            <a onClick={() => {
-              logOut();
-              navigate('/login');
-            }}>Logout</a>
-          ) : (
-            <div className='SignupLogin-btn'>
-              <a href="/signup" alt="SignUp"><button>SignUp</button></a>
-              <a href="/login" alt="LogIn"><button>Login</button></a>
-            </div>
-          )}
-
         </Menu>
+
       </div>
+
     </nav>
   );
 }

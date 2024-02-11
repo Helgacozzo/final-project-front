@@ -1,6 +1,6 @@
-import './Home.scss';
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Logo from '../assets/Logo.svg';
+import './Home.scss';
 
 export default function Home() {
 

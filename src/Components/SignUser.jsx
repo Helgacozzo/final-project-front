@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./SignUser.scss";
+import { FaCircleUser } from "react-icons/fa6";
 import { useUser } from '../context/UserContext';
+import "./SignUser.scss";
 
 const SignUser = ({ type }) => {
 
@@ -44,6 +45,11 @@ const SignUser = ({ type }) => {
     <div className='Background-Container'>
       <div className='form-content'>
         <h2 className='subtitle'>{title}</h2>
+        <div className='user-icon-wrapper'>
+          <hr />
+          <FaCircleUser className='user-icon' size={70} />
+          <hr />
+        </div>
         {error && <p className='error'>{error}</p>}
         <form onSubmit={SignUser}>
           <div>

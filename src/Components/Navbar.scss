@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 30px;
+    padding: 10px 50px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.474);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
@@ -23,6 +23,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 
 .logo img {
@@ -43,7 +45,7 @@ hr {
 }
 
 .menu {
-    top: 55px;
+    top: 54px;
     background-color: rgb(10, 10, 10);
     width: calc(100% - 55px) !important;
     height: 100vh !important;
@@ -66,7 +68,32 @@ hr {
     transition: 0.3s ease;
 }
 
+.menu-icon {
+    color: rgb(255, 255, 255);
+    transition: 0.3s ease;
+}
+
 .menu-icon:hover {
+    color: rgb(207, 60, 114);
+    transition: 0.3s ease;
+}
+
+.icon-a{
+    color: white;
+    cursor: pointer;
+}
+
+.icon-a:hover {
+    color: rgb(207, 60, 114);
+    transition: 0.3s ease;
+}
+
+.icon-b{
+    color: white;
+    cursor: pointer;
+}
+
+.icon-b:hover {
     color: rgb(207, 60, 114);
     transition: 0.3s ease;
 }
@@ -77,7 +104,7 @@ hr {
 @media (max-width: 960px) {
 
     .logo-container {
-        padding-left: 55px;
+        padding-left: 5px;
     }
 
     .menu-item {
@@ -89,7 +116,7 @@ hr {
 @media screen and (max-width: 640px) {
 
     .logo-container {
-        padding-left: 0;
+        padding-left: 0px;
     }
 
     .menu {
