@@ -33,7 +33,7 @@ const Events = () => {
     });
 
     useEffect(() => {
-        axios.get(`${VITE_API_URL}/events`, axiosOptions(token))
+        axios.get(`${VITE_API_URL}/events`,axiosOptions(token))
             .then(res => setEvents(res.data))
             .catch(err => {
                 console.error(err);
@@ -42,7 +42,7 @@ const Events = () => {
     }, []);
 
     const handleSubmit = () => {
-        axios.post(`${VITE_API_URL}/events`, formData)
+        axios.post(`${VITE_API_URL}/events`, formData, axiosOptions(token))
             .then(response => {
                 console.log(`Evento creato:`, response.data);
                 setEvents(prevEvents => [...prevEvents, response.data]);
