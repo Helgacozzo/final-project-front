@@ -12,9 +12,7 @@ export default function Home() {
             <h2 className='title'>Your spiritual Experiences</h2>
 
             <div className='button-container'>
-                <a href="/events"><button className='button-home'>
-                    Go to Events <div className='fa-arrow-right'>
-                        <FaLongArrowAltRight /></div></button></a>
+                <a href="/events"><button className='button-home'>Go to Events<FaLongArrowAltRight size={20} className='fa-arrow-right'/></button></a>
             </div>
         </div>
 

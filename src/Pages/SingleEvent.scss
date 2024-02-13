@@ -1,20 +1,6 @@
-.single-event-container {
+.Back-Container {
     padding: 10rem;
-    background-color: #000000;
-    color: #333;
-    font-family: Arial, sans-serif;
+    background: linear-gradient(#00000000 5%, #0000008a 10%, #000000d6 80%);
+    backdrop-filter: blur(4px);
+    height: 100vh;
   }
-  
-  .single-event-content {
-    margin-top: 20px;
-  }
-  
-  .single-event-content h1 {
-    font-size: 24px;
-  }
-  
-  .single-event-content p {
-    margin-top: 10px;
-    color: #666;
-  }
-  

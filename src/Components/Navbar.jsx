@@ -24,16 +24,24 @@ const Navbar = () => {
     <nav className='navbar'>
 
       {user ? (
+
         <div>
+
           <a className='icon-a' onClick={() => {
             logOut();
             navigate('/login');
-          }}><FaCircleUser size={19} /></a>
+          }}>
+            <FaCircleUser size={19} />
+          </a>
+
         </div>
+
       ) : (
+
         <div>
           <Link to="/signup" className='icon-b'><FaRegUserCircle size={19} /></Link>
         </div>
+
       )}
 
       <div className='logo-container'>

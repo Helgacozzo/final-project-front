@@ -33,7 +33,7 @@ const SingleEvent = () => {
   }
 
   return (
-    <div className="single-event-container">
+    <div className="Back-Container">
       <h1>{event.title}</h1>
       <div className="single-event-content">
         <p>{event.description}</p>

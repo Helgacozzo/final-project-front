@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import dayjs from 'dayjs';
 import 'dayjs/locale/it';
-import { Link } from 'react-router-dom';
+import { HiDotsHorizontal } from "react-icons/hi";
 import { IoLocationSharp } from "react-icons/io5";
 import { useUser } from "../context/UserContext.jsx";
 import { axiosOptions } from "../lib/utilities.js";
+import { Link } from "react-router-dom";
 import OrganizerPopUp from "../Components/OrganizerPopUp.jsx";
 import CounterParticipants from "../Components/CounterParticipants.jsx";
 import "./Events.scss";
@@ -13,12 +14,14 @@ import "./Events.scss";
 const { VITE_API_URL } = import.meta.env;
 
 const Events = () => {
-    const { token } = useUser();
+
     dayjs.locale('it');
+    const { token } = useUser();
 
     const [events, setEvents] = useState([]);
     const [error, setError] = useState();
     const [showOrganizerPopUp, setShowOrganizerPopUp] = useState(false);
+
     const [formData, setFormData] = useState({
         title: '',
         description: '',
@@ -51,7 +54,7 @@ const Events = () => {
                 });
             })
             .catch(error => {
-                console.error(`La creazione dell'evento non è andata a buon fine:`, error.response.data.message);
+                console.error(`La creazione dell'evento non è andato a buon fine:`, error.response.data.message);
                 setError(error.response.data.message);
             });
     };
@@ -80,30 +83,32 @@ const Events = () => {
                     formData={formData} />
                 <div className="event-grid">
                     {events.map(event => (
-                        <Link key={event._id} to={`/events/${event._id}`} className="event-card-link">
-                            <div className="event-card">
-                                <div className="info-container">
-                                    <div className="event-date">
-                                        <p className="day">{dayjs(event.date).format('DD')}</p>
-                                        <div className="month-year">
-                                            <p className="month">{dayjs(event.date).format('MMMM')}</p>
-                                            <p className="year">{dayjs(event.date).format('YYYY')}</p>
-                                        </div>
-                                        <p className="event-time">{event.time}</p>
+                        <div key={event._id} className="event-card">
+                            <div className="info-container">
+                                <div className="event-date">
+                                    <p className="day">{dayjs(event.date).format('DD')}</p>
+                                    <div className="month-year">
+                                        <p className="month">{dayjs(event.date).format('MMMM')}</p>
+                                        <p className="year">{dayjs(event.date).format('YYYY')}</p>
                                     </div>
+                                    <p className="event-time">{event.time}</p>
                                 </div>
-                                <div className="event-details">
-                                    <h2>{event.title}</h2>
-                                    <p>{event.description}</p>
-                                    <div className="location">
-                                        <IoLocationSharp className="location-icon" />
-                                        <p>{event.location}</p>
-                                    </div>
-                                    <CounterParticipants eventId={event._id} />
-                                </div>
-                                <p>Vedi di più</p>
                             </div>
-                        </Link>
+                            <div className="event-details">
+                                <div className="title-wrapper">
+                                    <h2>{event.title}</h2>
+                                    <Link key={event._id} to={`/events/${event._id}`} >
+                                        <HiDotsHorizontal size={20} className="dots" />
+                                    </Link>
+                                </div>
+                                <p>{event.description}</p>
+                                <div className="location">
+                                    <IoLocationSharp className="location-icon" />
+                                    <p>{event.location}</p>
+                                </div>
+                                <CounterParticipants eventId={event._id} />
+                            </div>
+                        </div>
                     ))}
                 </div>
                 {error && <p className="error">Si è verificato un errore: {error}</p>}

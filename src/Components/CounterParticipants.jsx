@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { IoPersonSharp } from "react-icons/io5";
+import 'dayjs/locale/it';
 import "./CounterParticipants.scss";
 
 const CounterParticipants = ({ eventId }) => {
@@ -23,13 +25,20 @@ const CounterParticipants = ({ eventId }) => {
     };
 
     return (
-        <div>
-            <h5>Partecipanti: {count}</h5>
-            <div className='btn-container'>
+
+        <div className='btn-container'>
+
+            <div>
                 <button className="participate-button" onClick={increment}>Partecipa</button>
                 <button className="not-button" onClick={decrement}>Annulla</button>
             </div>
+
+            <div>
+                <h5>{count} <IoPersonSharp size={10} /></h5>
+            </div>
+
         </div>
+
     );
 
 };
