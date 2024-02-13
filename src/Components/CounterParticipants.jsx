@@ -17,22 +17,19 @@ const CounterParticipants = ({ eventId }) => {
     };
 
     const decrement = () => {
-        setCount(prevCount => prevCount - 1);
+        if (count > 0) {
+            setCount(prevCount => prevCount - 1);
+        }
     };
 
     return (
-
         <div>
-
             <h5>Partecipanti: {count}</h5>
-
             <div className='btn-container'>
                 <button className="participate-button" onClick={increment}>Partecipa</button>
                 <button className="not-button" onClick={decrement}>Annulla</button>
             </div>
-
         </div>
-        
     );
 
 };
