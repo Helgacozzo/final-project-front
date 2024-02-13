@@ -4,9 +4,9 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/it';
 import { IoLocationSharp } from "react-icons/io5";
 import OrganizerPopUp from "../Components/OrganizerPopUp.jsx";
-import ParticipantPopUp from "../Components/PartecipantPopUp.jsx";
 import { useUser } from "../context/UserContext.jsx";
 import { axiosOptions } from "../lib/utilities.js";
+import CounterParticipants from "../Components/CounterParticipants.jsx";
 import "./Events.scss";
 
 const { VITE_API_URL } = import.meta.env;
@@ -21,9 +21,7 @@ const Events = () => {
     const [error, setError] = useState();
 
     const [showOrganizerPopUp, setShowOrganizerPopUp] = useState(false);
-    const [showParticipantPopUp, setShowParticipantPopUp] = useState(false);
 
-    const [selectedEventId, setSelectedEventId] = useState(null);
     const [formData, setFormData] = useState({
         title: '',
         description: '',
@@ -33,7 +31,7 @@ const Events = () => {
     });
 
     useEffect(() => {
-        axios.get(`${VITE_API_URL}/events`,axiosOptions(token))
+        axios.get(`${VITE_API_URL}/events`, axiosOptions(token))
             .then(res => setEvents(res.data))
             .catch(err => {
                 console.error(err);
@@ -64,41 +62,26 @@ const Events = () => {
     const handleChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name]:
-                e.target.value
+            [e.target.name]: e.target.value
         });
     };
 
-    const handleParticipate = (eventId) => {
-        setSelectedEventId(eventId);
-        setShowParticipantPopUp(true);
-    };
-
     return (
-
         <div className="Background-Container">
-
             <div className="events-container">
-
                 <h1>Eventi</h1>
-
                 <div className="center-button">
-
                     <button className="organize-button"
                         onClick={() =>
                             setShowOrganizerPopUp(true)}>Organizza Evento</button>
-
                 </div>
-
                 <OrganizerPopUp
                     showPopup={showOrganizerPopUp}
                     onClose={() => setShowOrganizerPopUp(false)}
                     handleSubmit={handleSubmit}
                     handleChange={handleChange}
                     formData={formData} />
-
                 <div className="event-grid">
-
                     {events.map(event => (
                         <div key={event._id} className="event-card">
                             <div className="info-container">
@@ -111,7 +94,6 @@ const Events = () => {
                                     <p className="event-time">{event.time}</p>
                                 </div>
                             </div>
-
                             <div className="event-details">
                                 <h2>{event.title}</h2>
                                 <p>{event.description}</p>
@@ -119,27 +101,13 @@ const Events = () => {
                                     <IoLocationSharp className="location-icon" />
                                     <p>{event.location}</p>
                                 </div>
-
-                                <button className="participate-button"
-                                    onClick={() =>
-                                        handleParticipate(event._id)}>Partecipa</button>
+                                <CounterParticipants eventId={event._id} />
                             </div>
-
                         </div>
                     ))}
-
                 </div>
                 {error && <p className="error">Si è verificato un errore: {error}</p>}
             </div>
-
-            {showParticipantPopUp && selectedEventId && (
-                <ParticipantPopUp
-                    key={selectedEventId}
-                    showParticipantPopUp={showParticipantPopUp}
-                    onClose={() => setShowParticipantPopUp(false)}
-                />
-            )}
-
         </div>
     );
 }

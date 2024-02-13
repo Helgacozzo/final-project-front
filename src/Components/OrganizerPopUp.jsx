@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import "./PopUp.scss";
+import "./OrganizerPopUp.scss";
 
 const OrganizerPopUp = ({ showPopup, onClose, handleSubmit, handleChange, formData }) => {
 
-  const { token, user } = useUser();
+  const { user } = useUser();
 
   return (
     showPopup && (
