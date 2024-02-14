@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import "./OrganizerPopUp.scss";
+import "./Organizer.scss";
 
-const OrganizerPopUp = ({ showPopup, onClose, handleSubmit, handleChange, formData }) => {
+const Organizer = ({ showPopup, onClose, handleSubmit, handleChange, formData }) => {
 
   const { user } = useUser();
 
@@ -78,4 +78,4 @@ const OrganizerPopUp = ({ showPopup, onClose, handleSubmit, handleChange, formDa
   );
 };
 
-export default OrganizerPopUp;
+export default Organizer;

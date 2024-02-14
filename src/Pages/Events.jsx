@@ -7,7 +7,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { useUser } from "../context/UserContext.jsx";
 import { axiosOptions } from "../lib/utilities.js";
 import { Link } from "react-router-dom";
-import OrganizerPopUp from "../Components/OrganizerPopUp.jsx";
+import Organizer from "../Components/Organizer.jsx";
 import CounterParticipants from "../Components/CounterParticipants.jsx";
 import "./Events.scss";
 
@@ -39,25 +39,31 @@ const Events = () => {
             });
     }, []);
 
-    const handleSubmit = () => {
-        axios.post(`${VITE_API_URL}/events`, formData, axiosOptions(token))
-            .then(response => {
-                console.log(`Evento creato:`, response.data);
-                setEvents(prevEvents => [...prevEvents, response.data]);
-                setShowOrganizerPopUp(false);
-                setFormData({
-                    title: '',
-                    description: '',
-                    date: '',
-                    time: '',
-                    location: '',
-                });
-            })
-            .catch(error => {
-                console.error(`La creazione dell'evento non è andato a buon fine:`, error.response.data.message);
-                setError(error.response.data.message);
+
+const handleSubmit = () => {
+    axios.post(
+        `${VITE_API_URL}/events`,
+        { ...formData, organizerId: token.userId },
+        axiosOptions(token)
+    )
+        .then(response => {
+            console.log(`Evento creato:`, response.data);
+            setEvents(prevEvents => [...prevEvents, response.data]);
+            setShowOrganizerPopUp(false);
+            setFormData({
+                title: '',
+                description: '',
+                date: '',
+                time: '',
+                location: '',
             });
-    };
+        })
+        .catch(error => {
+            console.error(`La creazione dell'evento non è andata a buon fine:`, error.response.data.message);
+            setError(error.response.data.message);
+        });
+};
+
 
     const handleChange = (e) => {
         setFormData({
@@ -75,7 +81,7 @@ const Events = () => {
                         onClick={() =>
                             setShowOrganizerPopUp(true)}>Organizza Evento</button>
                 </div>
-                <OrganizerPopUp
+                <Organizer
                     showPopup={showOrganizerPopUp}
                     onClose={() => setShowOrganizerPopUp(false)}
                     handleSubmit={handleSubmit}
