@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import dayjs from 'dayjs';
-import 'dayjs/locale/it';
 import { HiDotsHorizontal } from "react-icons/hi";
 import { IoLocationSharp } from "react-icons/io5";
 import { useUser } from "../context/UserContext.jsx";
 import { axiosOptions } from "../lib/utilities.js";
 import { Link } from "react-router-dom";
-import Organizer from "../Components/Organizer.jsx";
+import OrganizerPopUp from "../Components/OrganizerPopUp.jsx";
 import CounterParticipants from "../Components/CounterParticipants.jsx";
+import axios from "axios";
+import dayjs from 'dayjs';
+import 'dayjs/locale/it';
 import "./Events.scss";
 
 const { VITE_API_URL } = import.meta.env;
 
-const Events = () => {
+
+export default function () {
 
     dayjs.locale('it');
     const { token } = useUser();
@@ -40,29 +41,29 @@ const Events = () => {
     }, []);
 
 
-const handleSubmit = () => {
-    axios.post(
-        `${VITE_API_URL}/events`,
-        { ...formData, organizerId: token.userId },
-        axiosOptions(token)
-    )
-        .then(response => {
-            console.log(`Evento creato:`, response.data);
-            setEvents(prevEvents => [...prevEvents, response.data]);
-            setShowOrganizerPopUp(false);
-            setFormData({
-                title: '',
-                description: '',
-                date: '',
-                time: '',
-                location: '',
+    const handleSubmit = () => {
+        axios.post(
+            `${VITE_API_URL}/events`,
+            { ...formData, organizerId: token.userId },
+            axiosOptions(token)
+        )
+            .then(response => {
+                console.log(`Evento creato:`, response.data);
+                setEvents(prevEvents => [...prevEvents, response.data]);
+                setShowOrganizerPopUp(false);
+                setFormData({
+                    title: '',
+                    description: '',
+                    date: '',
+                    time: '',
+                    location: '',
+                });
+            })
+            .catch(error => {
+                console.error(`La creazione dell'evento non è andata a buon fine:`, error.response.data.message);
+                setError(error.response.data.message);
             });
-        })
-        .catch(error => {
-            console.error(`La creazione dell'evento non è andata a buon fine:`, error.response.data.message);
-            setError(error.response.data.message);
-        });
-};
+    };
 
 
     const handleChange = (e) => {
@@ -73,6 +74,7 @@ const handleSubmit = () => {
     };
 
     return (
+
         <div className="Background-Container">
             <div className="events-container">
                 <h1>Eventi</h1>
@@ -81,12 +83,14 @@ const handleSubmit = () => {
                         onClick={() =>
                             setShowOrganizerPopUp(true)}>Organizza Evento</button>
                 </div>
-                <Organizer
-                    showPopup={showOrganizerPopUp}
+
+                <OrganizerPopUp
+                    isOpen={showOrganizerPopUp}
                     onClose={() => setShowOrganizerPopUp(false)}
                     handleSubmit={handleSubmit}
                     handleChange={handleChange}
                     formData={formData} />
+
                 <div className="event-grid">
                     {events.map(event => (
                         <div key={event._id} className="event-card">
@@ -116,11 +120,12 @@ const handleSubmit = () => {
                             </div>
                         </div>
                     ))}
+
                 </div>
                 {error && <p className="error">Si è verificato un errore: {error}</p>}
             </div>
         </div>
-    );
-}
 
-export default Events;
+    );
+
+}

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import Logo from '../assets/Logo.svg';
 import { FaCircleUser } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useUser } from '../context/UserContext';
 import { Link, useNavigate } from "react-router-dom";
+import Logo from '../assets/Logo.svg';
 import './Navbar.scss';
 
-const Navbar = () => {
+
+export default function () {
 
   const navigate = useNavigate();
   const { user, logOut } = useUser();
@@ -73,5 +74,3 @@ const Navbar = () => {
     </nav>
   );
 }
-
-export default Navbar;

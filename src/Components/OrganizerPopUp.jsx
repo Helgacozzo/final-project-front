@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import "./Organizer.scss";
+import "./PopUp.scss";
 
-const Organizer = ({ showPopup, onClose, handleSubmit, handleChange, formData }) => {
+
+const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData }) => {
 
   const { user } = useUser();
 
   return (
-    showPopup && (
+
+    isOpen && (
       <div className="popup-container">
         <div className="popup-content">
           <span className="close" onClick={onClose}>X</span>
@@ -75,7 +77,9 @@ const Organizer = ({ showPopup, onClose, handleSubmit, handleChange, formData })
         </div>
       </div>
     )
+
   );
+
 };
 
-export default Organizer;
+export default OrganizerPopUp;

@@ -4,7 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import './SideBar.scss';
 
-export default function Sidebar() {
+export default function () {
 
   return (
 
@@ -12,14 +12,14 @@ export default function Sidebar() {
 
       <div className='socialMenu'>
         <ul>
-          <li><a href="https://www.instagram.com/"><FaInstagram size={19}/></a></li>
-          <li><a href="https://www.facebook.com/"><FaFacebook size={19}/></a></li>
-          <li><a href="https://twitter.com/"><FaTwitter size={19}/></a></li>
+          <li><a href="https://www.instagram.com/"><FaInstagram size={19} /></a></li>
+          <li><a href="https://www.facebook.com/"><FaFacebook size={19} /></a></li>
+          <li><a href="https://twitter.com/"><FaTwitter size={19} /></a></li>
         </ul>
       </div>
 
     </nav>
 
   );
-  
+
 }

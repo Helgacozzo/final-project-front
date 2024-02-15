@@ -42,6 +42,7 @@ const SignUser = ({ type }) => {
   };
 
   return (
+
     <div className='Background-Container'>
       <div className='form-content'>
         <h2 className='subtitle'>{title}</h2>
@@ -52,6 +53,7 @@ const SignUser = ({ type }) => {
         </div>
         {error && <p className='error'>{error}</p>}
         <form onSubmit={SignUser}>
+
           <div>
             <label>Email:</label>
             <span>*</span>
@@ -63,8 +65,10 @@ const SignUser = ({ type }) => {
               required
             />
           </div>
+
           {type === 'signup' && (
             <>
+
               <div>
                 <label>Password:</label>
                 <span>*</span>
@@ -76,6 +80,7 @@ const SignUser = ({ type }) => {
                   required
                 />
               </div>
+
               <div>
                 <label>Confirm Password:</label>
                 <span>*</span>
@@ -88,9 +93,12 @@ const SignUser = ({ type }) => {
                 />
                 {confirmPasswordError && <p className='error'>{confirmPasswordError}</p>}
               </div>
+
             </>
           )}
+
           {type === 'login' && (
+
             <div>
               <label>Password:</label>
               <span>*</span>
@@ -102,14 +110,19 @@ const SignUser = ({ type }) => {
                 required
               />
             </div>
+
           )}
           <button className='User-button' type="submit">{title}</button>
         </form>
+
         <p>{type === 'login' ? 'Non hai un account?   ' : 'Hai già un account?   '}
           <Link className='link' to={`/${oppositeType}`}>{type === 'login' ? 'Registrati' : 'Accedi'}</Link></p>
+
       </div>
     </div>
+
   );
+
 };
 
 export default SignUser;

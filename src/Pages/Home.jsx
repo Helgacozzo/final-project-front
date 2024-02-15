@@ -2,7 +2,8 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import Logo from '../assets/Logo.svg';
 import './Home.scss';
 
-export default function Home() {
+
+export default function () {
 
     return (
 
@@ -12,8 +13,9 @@ export default function Home() {
             <h2 className='title'>Your spiritual Experiences</h2>
 
             <div className='button-container'>
-                <a href="/events"><button className='button-home'>Go to Events<FaLongArrowAltRight size={20} className='fa-arrow-right'/></button></a>
+                <a href="/events"><button className='button-home'>Go to Events<FaLongArrowAltRight size={20} className='fa-arrow-right' /></button></a>
             </div>
+
         </div>
 
     );

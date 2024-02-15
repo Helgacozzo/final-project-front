@@ -3,6 +3,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import 'dayjs/locale/it';
 import "./CounterParticipants.scss";
 
+
 const CounterParticipants = ({ eventId }) => {
 
     const [count, setCount] = useState(() => {
