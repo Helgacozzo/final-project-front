@@ -1,20 +1,27 @@
+.Background-Container {
+    background: linear-gradient(#00000000 5%, #0000008a 10%, #000000d6 80%);
+    backdrop-filter: blur(4px);
+}
+
 .title-wrapper {
     display: flex;
     justify-content: space-between;
     padding-right: 10px;
+
+    h2 {
+        margin-top: 0;
+        color: white;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+        font-size: 1.5rem;
+    }
 }
 
-.title-wrapper h2 {
-    margin-top: 0;
-    color: white;
-    text-transform: uppercase;
-    padding-bottom: 20px;
-    font-size: 1.5rem;
-}
-
-.Background-Container {
-    background: linear-gradient(#00000000 5%, #0000008a 10%, #000000d6 80%);
-    backdrop-filter: blur(4px);
+.event-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-left: 40px;
 }
 
 .events-container {
@@ -24,17 +31,18 @@
     font-family: Arial, sans-serif;
     height: calc(100vh - 50px);
     overflow-y: auto;
-}
 
-.info-container {
-    background-color: white;
-}
+    .info-container {
+        background-color: white;
+    }
 
-.event-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding-left: 40px;
+    h1 {
+        color: white;
+        text-transform: uppercase;
+        font-size: 3rem;
+        text-align: center;
+        margin: 50px;
+    }
 }
 
 .event-card {
@@ -45,6 +53,19 @@
     border: 1px solid white;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.115);
     border-radius: 0 8px 8px 0;
+
+    h2 {
+        margin-top: 0;
+        color: white;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+        font-size: 1.5rem
+    }
+
+    p {
+        color: #ffffff;
+        font-size: 0.9rem;
+    }    
 }
 
 .event-date {
@@ -52,28 +73,28 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
 
-.event-date .day {
-    font-size: 4rem;
-    font-weight: 800;
-    padding-top: 10px;
-}
+    .day {
+        font-size: 4rem;
+        font-weight: 800;
+        padding-top: 10px;
+    }
 
-.event-date .month {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    font-weight: 500;
-}
+    .month {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
 
-.event-date .year {
-    font-size: 2rem;
-}
+    .year {
+        font-size: 2rem;
+    }
 
-.event-date .month,
-.event-date .day,
-.event-date .year {
-    color: black;
+    .month,
+    .day,
+    .year {
+        color: black;
+    }
 }
 
 .event-time {
@@ -85,10 +106,10 @@
 }
 
 .event-details {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-grow: 1;
 }
 
 .location {
@@ -104,27 +125,6 @@
     margin-right: 5px;
 }
 
-.events-container h1 {
-    color: white;
-    text-transform: uppercase;
-    font-size: 3rem;
-    text-align: center;
-    margin: 50px;
-}
-
-.event-card h2 {
-    margin-top: 0;
-    color: white;
-    text-transform: uppercase;
-    padding-bottom: 20px;
-    font-size: 1.5rem
-}
-
-.event-card p {
-    color: #ffffff;
-    font-size: 0.9rem;
-}
-
 .center-button {
     display: flex;
     justify-content: center;
@@ -132,10 +132,10 @@
 
 .organize-button {
     margin-bottom: 50px;
+    padding: 15px 20px;
     color: white;
     font-size: 1rem;
     border: 1px solid rgb(207, 60, 114);
-    padding: 15px 20px;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.81);
     text-transform: uppercase;
@@ -149,6 +149,9 @@
     }
 
 }
+
+
+// MEDIA QUERIES
 
 @media (max-width: 960px) {
 

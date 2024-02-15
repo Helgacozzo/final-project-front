@@ -1,19 +1,19 @@
 .Background-Container {
+    display: flex;
+    justify-content: center;
     background: linear-gradient(#00000000 5%, #0000008a 10%, #000000d6 80%);
     backdrop-filter: blur(4px);
     height: 100vh;
-    display: flex;
-    justify-content: center;
 }
 
 .link {
     color: rgb(207, 60, 114);
-}
 
-.link:hover {
-    color: rgba(180, 55, 101, 0.548);
-    backdrop-filter: blur(4px);
-    transition: color 0.3s, transform 0.3s;
+    &:hover {
+        color: rgba(180, 55, 101, 0.548);
+        backdrop-filter: blur(4px);
+        transition: color 0.3s, transform 0.3s;
+    }
 }
 
 .subtitle {
@@ -30,21 +30,20 @@
     align-items: center;
     padding-bottom: 30px;
     width: 100%;
-}
 
-.user-icon {
-    margin: 0 10px;
+    .user-icon {
+        margin: 0 10px;
+    }
 }
 
 .form-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     border-radius: 8px;
     color: white;
     text-transform: uppercase;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 100px;
-
 
     span {
         color: rgb(207, 60, 114);
@@ -62,10 +61,10 @@
     input {
         margin-bottom: 15px;
         padding: 10px;
+        width: 100%;
         border: 1px solid #000000;
         border-radius: 4px;
         transition: border-color 0.3s;
-        width: 100%;
 
         &:focus {
             outline: none;
@@ -76,6 +75,7 @@
 
 .User-button {
     margin-bottom: 50px;
+    width: 100%;
     color: white;
     font-size: 1rem;
     border: 1px solid rgb(207, 60, 114);
@@ -85,7 +85,6 @@
     background-color: rgba(0, 0, 0, 0.81);
     text-transform: uppercase;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, padding 0.3s;
-    width: 100%;
 
     &:hover {
         background-color: rgba(180, 55, 101, 0.548);
@@ -98,17 +97,13 @@
 // MEDIA QUERIES
 
 @media (max-width: 960px) {
-
     .form-content {
         margin-left: 155px;
     }
-
 }
 
 @media (max-width: 640px) {
-
     .form-content {
         margin: 100px;
     }
-
 }

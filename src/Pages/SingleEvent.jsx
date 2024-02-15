@@ -62,8 +62,8 @@ export default function () {
           <p>{event.location}</p>
         </div>
         <div>
-          <button onClick={() => setEditPopUpOpen(true)}>Modifica</button>
-          <button onClick={() => setDeletePopUpOpen(true)}>Cancella evento</button>
+          <button className="organizer-button" onClick={() => setEditPopUpOpen(true)}>Modifica</button>
+          <button className="organizer-button" onClick={() => setDeletePopUpOpen(true)}>Elimina</button>
         </div>
 
         <EditEventPopUp

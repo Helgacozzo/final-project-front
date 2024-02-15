@@ -1,6 +1,9 @@
 @import 'animate.css';
 
 .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,9 +15,6 @@
     backdrop-filter: blur(4px);
     box-shadow: 0 4px 6px rgba(7, 1, 23, 0.358);
     animation: fadeInDown 2s;
-    position: fixed;
-    top: 0;
-    width: 100%;
     z-index: 2;
 }
 
@@ -61,41 +61,41 @@ hr {
     text-decoration: none;
     color: white;
     padding-right: 57px;
-}
 
-.menu-item:hover {
-    color: rgb(207, 60, 114);
-    transition: 0.3s ease;
+    &:hover {
+        color: rgb(207, 60, 114);
+        transition: 0.3s ease;
+    }
 }
 
 .menu-icon {
     color: rgb(255, 255, 255);
     transition: 0.3s ease;
-}
 
-.menu-icon:hover {
-    color: rgb(207, 60, 114);
-    transition: 0.3s ease;
+    &:hover {
+        color: rgb(207, 60, 114);
+        transition: 0.3s ease;
+    }
 }
 
 .icon-a {
     color: white;
     cursor: pointer;
-}
 
-.icon-a:hover {
-    color: rgb(207, 60, 114);
-    transition: 0.3s ease;
+    &:hover {
+        color: rgb(207, 60, 114);
+        transition: 0.3s ease;
+    }
 }
 
 .icon-b {
     color: white;
     cursor: pointer;
-}
 
-.icon-b:hover {
-    color: rgb(207, 60, 114);
-    transition: 0.3s ease;
+    &:hover {
+        color: rgb(207, 60, 114);
+        transition: 0.3s ease;
+    }
 }
 
 

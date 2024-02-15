@@ -1,61 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Cinzel+Decorative&family=Julius+Sans+One&family=Poiret+One&display=swap');
 
 .container {
-    height: 100vh;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-}
+    height: 100vh;
+    padding: 20px;
 
-.container>img {
-    width: 70%;
-    padding-right: 70px;
-}
-
-.title {
-    font-size: 250%;
-    font-family: "Julius Sans One", sans-serif;
-    text-align: center;
-}
-
-.button-container {
-    padding-left: 20px;
-}
-
-.button-home {
-    background-color: transparent;
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    color: white;
-    font-size: 1rem;
-    border: 1px solid white;
-    padding: 15px 20px;
-    border-radius: 20px;
-    margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.548);
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 6px rgba(7, 1, 23, 0.358);
-    text-transform: uppercase;
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, padding 0.3s;
-    animation: fadeIn;
-    animation-duration: 2s;
-
-    .fa-arrow-right {
-        transition: transform 0.3s ease-in-out;
+    > img {
+        width: 70%;
+        padding-right: 70px;
     }
 
-    &:hover {
-        background-color: rgba(180, 55, 101, 0.548);
-        backdrop-filter: blur(4px);
-        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.358);
-        transform: scale(1.05);
+    .title {
+        font-size: 160%;
+        font-family: "Julius Sans One", sans-serif;
+        text-align: center;
+    }
 
-        .fa-arrow-right {
-            transform: translateX(5px);
+    .button-container {
+        padding-left: 20px;
+
+        .button-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            font-size: 1rem;
+            border: 1px solid white;
+            padding: 15px 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.548);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 6px rgba(7, 1, 23, 0.358);
+            text-transform: uppercase;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, padding 0.3s;
+            animation: fadeIn 2s;
+
+            .fa-arrow-right {
+                transition: transform 0.3s ease-in-out;
+            }
+
+            &:hover {
+                background-color: rgba(180, 55, 101, 0.548);
+                backdrop-filter: blur(4px);
+                box-shadow: 0 4px 6px rgba(255, 255, 255, 0.358);
+                transform: scale(1.05);
+
+                .fa-arrow-right {
+                    transform: translateX(5px);
+                }
+            }
         }
     }
 }
@@ -64,37 +62,33 @@
 // MEDIA QUERIES
 
 @media (max-width: 960px) {
-
-    .container>img {
+    .container > img {
         width: 70%;
         padding-right: 20px;
     }
 
     .title {
-        font-size: 130%;
+        font-size: 50%;
         padding-left: 30px;
     }
 
     .button-container {
         padding-left: 50px;
     }
-
 }
 
 @media screen and (max-width: 640px) {
-
-    .container>img {
+    .container > img {
         width: 100%;
         padding-right: 50px;
     }
 
     .title {
-        font-size: 130%;
+        font-size: 50%;
         padding-left: 0;
     }
 
     .button-container {
         padding-left: 0;
     }
-
 }
