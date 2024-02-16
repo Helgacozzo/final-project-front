@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./PopUp.scss";
 
 
-const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData }) => {
+const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData, error }) => {
 
     const [formData, setFormData] = useState({
         title: eventData.title,
@@ -36,6 +36,7 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData }) => {
                 <div className="popup-content">
                     <span className="close" onClick={() => setIsOpen(false)}>X</span>
                     <h2>Modifica Evento</h2>
+                    {error && <div className="error">{error}</div>}
                     <form onSubmit={handleSubmit}>
                         <label>Titolo:</label>
                         <span>*</span>
@@ -103,6 +104,7 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData }) => {
 
                         <button type="submit">Salva Modifiche</button>
                     </form>
+
                 </div>
             </div>
         )

@@ -6,6 +6,7 @@ import { axiosOptions } from "../lib/utilities.js";
 import { Link } from "react-router-dom";
 import OrganizerPopUp from "../Components/OrganizerPopUp.jsx";
 import CounterParticipants from "../Components/CounterParticipants.jsx";
+import Preloader from '../Components/Preloader.jsx';
 import axios from "axios";
 import dayjs from 'dayjs';
 import 'dayjs/locale/it';
@@ -13,15 +14,14 @@ import "./Events.scss";
 
 const { VITE_API_URL } = import.meta.env;
 
-
 export default function () {
-
     dayjs.locale('it');
     const { token } = useUser();
 
     const [events, setEvents] = useState([]);
     const [error, setError] = useState();
     const [showOrganizerPopUp, setShowOrganizerPopUp] = useState(false);
+    const [loading, setLoading] = useState(true); // Aggiunto stato per gestire il caricamento
 
     const [formData, setFormData] = useState({
         title: '',
@@ -35,13 +35,16 @@ export default function () {
 
     useEffect(() => {
         axios.get(`${VITE_API_URL}/events`, axiosOptions(token))
-            .then(res => setEvents(res.data))
+            .then(res => {
+                setEvents(res.data);
+                setLoading(false); // Impostiamo il caricamento su false una volta completato
+            })
             .catch(err => {
                 console.error(err);
                 setError(err.message);
+                setLoading(false); // Assicuriamoci che il caricamento sia impostato su false anche in caso di errore
             });
     }, []);
-
 
     const handleSubmit = () => {
         axios.post(
@@ -78,58 +81,61 @@ export default function () {
     };
 
     return (
+        <>
+            {loading && <Preloader />} {/* Mostra il preloader solo durante il caricamento */}
 
-        <div className="Background-Container">
-            <div className="events-container">
-                <h1>Eventi</h1>
-                <div className="center-button">
-                    <button className="organize-button"
-                        onClick={() =>
-                            setShowOrganizerPopUp(true)}>Organizza Evento</button>
-                </div>
+            <div className="Background-Container">
+                <div className="events-container">
+                    <h1>Eventi</h1>
+                    <div className="center-button">
+                        <button className="organize-button"
+                            onClick={() =>
+                                setShowOrganizerPopUp(true)}>Organizza Evento</button>
+                    </div>
 
-                <OrganizerPopUp
-                    isOpen={showOrganizerPopUp}
-                    onClose={() => setShowOrganizerPopUp(false)}
-                    handleSubmit={handleSubmit}
-                    handleChange={handleChange}
-                    formData={formData} />
+                    <OrganizerPopUp
+                        isOpen={showOrganizerPopUp}
+                        onClose={() => setShowOrganizerPopUp(false)}
+                        handleSubmit={handleSubmit}
+                        handleChange={handleChange}
+                        formData={formData} />
 
-                <div className="event-grid">
-                    {events.map(event => (
-                        <div key={event._id} className="event-card">
-                            <div className="info-container">
-                                <div className="event-date">
-                                    <p className="day">{dayjs(event.date).format('DD')}</p>
-                                    <div className="month-year">
-                                        <p className="month">{dayjs(event.date).format('MMMM')}</p>
-                                        <p className="year">{dayjs(event.date).format('YYYY')}</p>
+                    {(events.length === 0 && !error) && 
+                    <div><p>Non ci sono nuovi eventi.</p></div>}
+
+                    <div className="event-grid">
+                        {events.map(event => (
+                            <div key={event._id} className="event-card">
+                                <div className="info-container">
+                                    <div className="event-date">
+                                        <p className="day">{dayjs(event.date).format('DD')}</p>
+                                        <div className="month-year">
+                                            <p className="month">{dayjs(event.date).format('MMMM')}</p>
+                                            <p className="year">{dayjs(event.date).format('YYYY')}</p>
+                                        </div>
+                                        <p className="event-time">{event.time}</p>
                                     </div>
-                                    <p className="event-time">{event.time}</p>
+                                </div>
+                                <div className="event-details">
+                                    <div className="title-wrapper">
+                                        <h2>{event.title}</h2>
+                                        <Link key={event._id} to={`/events/${event._id}`} >
+                                            <HiDotsHorizontal size={20} className="dots" />
+                                        </Link>
+                                    </div>
+                                    <p>{event.description}</p>
+                                    <div className="location">
+                                        <IoLocationSharp className="location-icon" />
+                                        <p>{event.location}</p>
+                                    </div>
+                                    <CounterParticipants eventId={event._id} />
                                 </div>
                             </div>
-                            <div className="event-details">
-                                <div className="title-wrapper">
-                                    <h2>{event.title}</h2>
-                                    <Link key={event._id} to={`/events/${event._id}`} >
-                                        <HiDotsHorizontal size={20} className="dots" />
-                                    </Link>
-                                </div>
-                                <p>{event.description}</p>
-                                <div className="location">
-                                    <IoLocationSharp className="location-icon" />
-                                    <p>{event.location}</p>
-                                </div>
-                                <CounterParticipants eventId={event._id} />
-                            </div>
-                        </div>
-                    ))}
-
+                        ))}
+                    </div>
+                    {error && <p className="error">Si è verificato un errore: {error}</p>}
                 </div>
-                {error && <p className="error">Si è verificato un errore: {error}</p>}
             </div>
-        </div>
-
+        </>
     );
-
 }
