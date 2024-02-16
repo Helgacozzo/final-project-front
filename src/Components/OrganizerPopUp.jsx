@@ -36,6 +36,21 @@ const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData 
                 required
               />
 
+              <label>Altre Informazioni:</label>
+              <textarea
+                name="more_info"
+                value={formData.more_info}
+                onChange={handleChange}
+              />
+
+              <label>Nome dell'organizzatore:</label>
+              <input
+                type="text"
+                name="organizer_name"
+                value={formData.organizer_name}
+                onChange={handleChange}
+              />
+
               <label>Data:</label>
               <span>*</span>
               <input
@@ -65,7 +80,6 @@ const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData 
                 onChange={handleChange}
                 required
               />
-
               <button type="submit">Crea Evento</button>
             </form>
           ) : (

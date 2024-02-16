@@ -56,6 +56,8 @@ export default function () {
       <div className="single-event-content">
         <h1>{event.title}</h1>
         <p>{event.description}</p>
+        <p>{event.more_info}</p>
+        <p>{event.organizer_name}</p>
         <p className="day">{dayjs(event.date).format('DD-MM-YYYY')}</p>
         <div className="location">
           <IoLocationSharp className="location-icon" />

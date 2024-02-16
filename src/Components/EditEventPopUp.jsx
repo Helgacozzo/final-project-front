@@ -30,7 +30,7 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData }) => {
     };
 
     return (
-        
+
         isOpen && (
             <div className="popup-container">
                 <div className="popup-content">
@@ -54,6 +54,21 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData }) => {
                             value={formData.description}
                             onChange={handleChange}
                             required
+                        />
+
+                        <label>Altre Informazioni:</label>
+                        <textarea
+                            name="more_info"
+                            value={formData.more_info}
+                            onChange={handleChange}
+                        />
+
+                        <label>Nome dell'organizzatore:</label>
+                        <input
+                            type="text"
+                            name="organizer_name"
+                            value={formData.organizer_name}
+                            onChange={handleChange}
                         />
 
                         <label>Data:</label>

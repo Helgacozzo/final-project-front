@@ -26,9 +26,11 @@ export default function () {
     const [formData, setFormData] = useState({
         title: '',
         description: '',
+        more_info: '',
+        organizer_name: '',
         date: '',
         time: '',
-        location: '',
+        location: ''
     });
 
     useEffect(() => {
@@ -54,9 +56,11 @@ export default function () {
                 setFormData({
                     title: '',
                     description: '',
+                    more_info: '',
+                    organizer_name,
                     date: '',
                     time: '',
-                    location: '',
+                    location: ''
                 });
             })
             .catch(error => {
