@@ -33,40 +33,41 @@ const SignUser = ({ type }) => {
     setConfirmPasswordError('');
     setEmailError('');
     setPasswordError('');
-
+  
     const { email, password, confirmPassword } = formData;
     try {
-      if (!isEmail(email)) {
-        setEmailError(`Dovresti inserire una email reale.`);
-        return;
-      }
-
-      if (!isStrongPassword(password)) {
-        setPasswordError(`La Password non corrisponde ai requisiti richiesti: M123@MiaE452!`);
-        return;
-      }
-
-      // if (type === 'signup') {
-      //   const emailExists = await checkEmailExists(email);
-      //   if (emailExists) {
-      //     setEmailError(`Email già in uso.`);
-      //     return;
-      //   }
-      // }
-
-      if (type === 'login') {
-        await logIn(email, password);
-      } else {
+      if (type === 'signup') {
+        if (!isEmail(email)) {
+          setEmailError(`Dovresti inserire una email reale.`);
+          return;
+        }
+  
+        if (!isStrongPassword(password)) {
+          setPasswordError(`La Password non corrisponde ai requisiti richiesti.`);
+          return;
+        }
+  
         if (password !== confirmPassword) {
           setConfirmPasswordError('La password non corrisponde.');
           return;
         }
+  
         await signUp(email, password);
+      }
+  
+      if (type === 'login') {
+        if (!isEmail(email) || !isStrongPassword(password)) {
+          setEmailError('Email o password non valide.');
+          return;
+        }
+        
+        await logIn(email, password);
       }
     } catch (error) {
       console.error(`Errore durante l'autenticazione:`, error);
     }
   };
+  
 
   return (
     <div className='Background-Container'>
