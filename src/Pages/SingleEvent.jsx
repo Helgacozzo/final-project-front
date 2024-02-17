@@ -15,7 +15,7 @@ import './SingleEvent.scss';
 const { VITE_API_URL } = import.meta.env;
 
 export default function () {
-  const { token } = useUser();
+  const { user, token } = useUser();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -69,10 +69,14 @@ export default function () {
               <IoLocationSharp className="location-icon" />
               <p>{event.location}</p>
             </div>
-            <div>
-              <button className="organizer-button" onClick={() => setEditPopUpOpen(true)}>Modifica</button>
-              <button className="organizer-button" onClick={() => setDeletePopUpOpen(true)}>Elimina</button>
-            </div>
+
+            {user &&
+               <div>
+               <button className="organizer-button" onClick={() => setEditPopUpOpen(true)}>Modifica</button>
+               <button className="organizer-button" onClick={() => setDeletePopUpOpen(true)}>Elimina</button>
+             </div>
+            }
+         
 
             <EditEventPopUp
               isOpen={editPopUpOpen}

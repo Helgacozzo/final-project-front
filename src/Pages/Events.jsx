@@ -15,13 +15,14 @@ import "./Events.scss";
 const { VITE_API_URL } = import.meta.env;
 
 export default function () {
+    
     dayjs.locale('it');
     const { token } = useUser();
 
     const [events, setEvents] = useState([]);
     const [error, setError] = useState();
     const [showOrganizerPopUp, setShowOrganizerPopUp] = useState(false);
-    const [loading, setLoading] = useState(true); // Aggiunto stato per gestire il caricamento
+    const [loading, setLoading] = useState(true); 
 
     const [formData, setFormData] = useState({
         title: '',
@@ -37,12 +38,12 @@ export default function () {
         axios.get(`${VITE_API_URL}/events`, axiosOptions(token))
             .then(res => {
                 setEvents(res.data);
-                setLoading(false); // Impostiamo il caricamento su false una volta completato
+                setLoading(false); 
             })
             .catch(err => {
                 console.error(err);
                 setError(err.message);
-                setLoading(false); // Assicuriamoci che il caricamento sia impostato su false anche in caso di errore
+                setLoading(false);
             });
     }, []);
 
@@ -82,7 +83,7 @@ export default function () {
 
     return (
         <>
-            {loading && <Preloader />} {/* Mostra il preloader solo durante il caricamento */}
+            {loading && <Preloader />} 
 
             <div className="Background-Container">
                 <div className="events-container">

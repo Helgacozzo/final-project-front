@@ -6,6 +6,7 @@ import { isEmail, isStrongPassword } from 'validator';
 import "./SignUser.scss";
 
 const SignUser = ({ type }) => {
+  
   const title = type === 'login' ? 'Log In' : 'Sign Up';
   const oppositeType = type === 'login' ? 'signup' : 'login';
 
@@ -107,7 +108,7 @@ const SignUser = ({ type }) => {
                 {passwordError && <p className='error'>{passwordError}</p>}
               </div>
               <div>
-                <label>Confirm Password:</label>
+                <label>Conferma Password:</label>
                 <span>*</span>
                 <input
                   type="password"
