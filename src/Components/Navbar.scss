@@ -2,13 +2,12 @@
 
 .navbar {
     position: fixed;
-    top: 0;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 50px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.474);
+    padding: 10px 30px;
+    border-bottom: 1px solid white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     background-color: rgba(0, 0, 0, 0.548);
@@ -18,53 +17,67 @@
     z-index: 2;
 }
 
-.logo-container {
-    display: flex;
+.logo img {
+    width: 13%;
+    cursor: pointer;
+}
+
+.nav-wrapper {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    margin-right: 30px;
-    margin-left: 30px;
-}
-
-.logo img {
-    width: 130px;
-    padding: 0 10px;
-}
-
-hr {
-    border-top: 0.25px solid white;
-    border-bottom: none;
-    width: 30%;
+    gap: 1rem;
 }
 
 .menu-wrapper {
     position: relative;
-    display: flex;
-    align-items: center;
 }
 
 .menu {
-    top: 54px;
-    background-color: rgb(10, 10, 10);
-    width: calc(100% - 55px) !important;
+    top: 57px;
+    width: 100% !important;
     height: 100vh !important;
-    z-index: 3;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    z-index: 1;
 }
+
+.menu::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-image: url('../assets/Background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+    z-index: -1;
+}
+
+hr{
+    margin-left: auto;
+    width: 50%;
+    border: 0;
+    border-top: 1px solid white;
+}
+
 
 .menu-item {
     margin-top: 100px;
-    padding-bottom: 30px;
+    padding-right: 30%;
     text-transform: uppercase;
-    font-size: 3rem;
-    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-align: right;
     text-decoration: none;
-    color: white;
-    padding-right: 57px;
+    color: rgba(255, 255, 255, 0.868);
 
     &:hover {
-        color: rgb(207, 60, 114);
+        color: rgb(255, 255, 255);
         transition: 0.3s ease;
+        transform: scale(1.1);
     }
 }
 
@@ -96,35 +109,4 @@ hr {
         color: rgb(207, 60, 114);
         transition: 0.3s ease;
     }
-}
-
-
-// MEDIA QUERIES
-
-@media (max-width: 960px) {
-
-    .logo-container {
-        padding-left: 5px;
-    }
-
-    .menu-item {
-        padding-right: 10px;
-    }
-
-}
-
-@media screen and (max-width: 640px) {
-
-    .logo-container {
-        padding-left: 0px;
-    }
-
-    .menu {
-        width: 100% !important;
-    }
-
-    .menu-item {
-        padding-right: 10px;
-    }
-
 }

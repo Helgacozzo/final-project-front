@@ -12,7 +12,7 @@ export default function () {
             <img src={Logo} alt="Ethereal" />
             <h2 className='title'>Your spiritual Experiences</h2>
 
-            <div className='button-container'>
+            <div>
                 <a href="/events"><button className='button-home'>Go to Events<FaLongArrowAltRight size={20} className='fa-arrow-right' /></button></a>
             </div>
 

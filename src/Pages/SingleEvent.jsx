@@ -5,7 +5,7 @@ import { useUser } from '../context/UserContext.jsx';
 import { axiosOptions } from '../lib/utilities.js';
 import EditEventPopUp from '../Components/EditEventPopUp.jsx';
 import DeleteEventPopUp from '../Components/DeleteEventPopUp.jsx';
-import NotFound from './/NotFound.jsx';
+import NotFound from './NotFound.jsx';
 import Preloader from '../Components/Preloader.jsx';
 import axios from 'axios';
 import dayjs from 'dayjs';
@@ -14,7 +14,7 @@ import './SingleEvent.scss';
 
 const { VITE_API_URL } = import.meta.env;
 
-export default function () {
+export default function SingleEvent() {
   const { user, token } = useUser();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -51,33 +51,36 @@ export default function () {
   };
 
   return (
-
     <div className='Back-Container'>
       <div className="single-event-content">
-
         {loading && <Preloader />}
         {error && <NotFound />}
-
         {event && (
           <>
+            <div className="title-wrapper">
+              <div className='event-date-b'>
+                <span className="day">{dayjs(event.date).format('DD')}</span>
+                <span className="month">{dayjs(event.date).format('MMMM')}</span>
+              </div>
+            </div>
+            <hr className='hr-event'/>
             <h1>{event.title}</h1>
+
+            <div className='description'>
             <p>{event.description}</p>
             <p>{event.more_info}</p>
-            <p>{event.organizer_name}</p>
-            <p className="day">{dayjs(event.date).format('DD-MM-YYYY')}</p>
+            </div>
+            <p>• {event.organizer_name}</p>
             <div className="location">
               <IoLocationSharp className="location-icon" />
               <p>{event.location}</p>
             </div>
-
-            {user &&
-               <div>
-               <button className="organizer-button" onClick={() => setEditPopUpOpen(true)}>Modifica</button>
-               <button className="organizer-button" onClick={() => setDeletePopUpOpen(true)}>Elimina</button>
-             </div>
-            }
-         
-
+            {user && (
+              <div className="button-container">
+                <button className="organizer-button" onClick={() => setEditPopUpOpen(true)}>Modifica</button>
+                <button className="organizer-button" onClick={() => setDeletePopUpOpen(true)}>Elimina</button>
+              </div>
+            )}
             <EditEventPopUp
               isOpen={editPopUpOpen}
               setIsOpen={(v) => { setEditPopUpOpen(v) }}
@@ -90,7 +93,6 @@ export default function () {
               }}
               eventData={event}
             />
-
             <DeleteEventPopUp
               isOpen={deletePopUpOpen}
               onClose={() => setDeletePopUpOpen(false)}
@@ -100,7 +102,5 @@ export default function () {
         )}
       </div>
     </div>
-
   );
-
-};
+}

@@ -21,7 +21,6 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    padding-left: 40px;
 }
 
 .events-container {
@@ -159,18 +158,6 @@
         padding: 4rem;
     }
 
-    .events-container h1 {
-        padding-left: 50px;
-    }
-
-    .center-button {
-        padding-left: 50px;
-    }
-
-    .popup {
-        padding-left: 50px;
-    }
-
 }
 
 @media (max-width: 640px) {
@@ -178,21 +165,5 @@
     .events-container {
         padding: 2rem;
     }
-
-    .events-container h1 {
-        padding-left: 0;
-    }
-
-    .center-button {
-        padding-left: 0;
-    }
-
-    .event-grid {
-        padding-left: 0;
-    }
-
-    .popup {
-        padding-left: 0;
-    }
-
+    
 }

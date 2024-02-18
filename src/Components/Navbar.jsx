@@ -5,7 +5,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useUser } from '../context/UserContext';
 import { Link, useNavigate } from "react-router-dom";
-import Logo from '../assets/Logo.svg';
+import Logo from '../assets/LogoPittogramma.svg';
 import './Navbar.scss';
 
 
@@ -24,53 +24,52 @@ export default function () {
 
     <nav className='navbar'>
 
-      {user ? (
+      <figure className='logo'>
+        <a href="/">
+          <img src={Logo} alt="Ethereal" />
+        </a>
+      </figure>
 
-        <div>
 
-          <a className='icon-a' onClick={() => {
-            logOut();
-            navigate('/login');
-          }}>
-            <FaCircleUser size={19} />
-          </a>
+      <div className='nav-wrapper'>
 
-        </div>
-
-      ) : (
-
-        <div>
-          <Link to="/signup" className='icon-b'><FaRegUserCircle size={19} /></Link>
-        </div>
-
-      )}
-
-      <div className='logo-container'>
-        <hr />
-        <figure className='logo'>
-          <Link to="/">
-            <img src={Logo} alt="Ethereal" />
-          </Link>
-        </figure>
-        <hr />
-      </div>
-
-      <div className='menu-wrapper'>
-
-        {isMenuOpen ? (
-          <FaTimes className='menu-icon' size={18} onClick={handleMenuToggle} />
+        {user ? (
+          <div>
+            <Link className='icon-a' onClick={() => {
+              logOut();
+              navigate('/login');
+            }}>
+              <FaCircleUser size={19} />
+            </Link>
+          </div>
         ) : (
-          <FaBars className='menu-icon' size={18} onClick={handleMenuToggle} />
+          <div>
+            <Link to="/signup" className='icon-b'><FaRegUserCircle size={19} /></Link>
+          </div>
         )}
 
-        <Menu className='menu' right isOpen={isMenuOpen} onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}>
-          <Link to="/" className="menu-item">Home</Link>
-          <Link to="#" className="menu-item">About</Link>
-          <Link to="#" className="menu-item">Contact</Link>
-        </Menu>
-
+        <div className='menu-wrapper'>
+          {isMenuOpen ? (
+            <FaTimes className='menu-icon' size={18} onClick={handleMenuToggle} />
+          ) : (
+            <FaBars className='menu-icon' size={18} onClick={handleMenuToggle} />
+          )}
+           <div className="menu-overlay">
+          <Menu className='menu' right isOpen={isMenuOpen} onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}>
+            <a href="/" className="menu-item">Home</a>
+            <hr />
+            <a href="#" className="menu-item">About</a>
+            <hr />
+            <a href="#" className="menu-item">Contact</a>
+            <hr />
+          </Menu>
+        </div>
+        </div>
+       
       </div>
 
     </nav>
+
   );
+  
 }
