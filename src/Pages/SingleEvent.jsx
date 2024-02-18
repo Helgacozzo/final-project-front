@@ -49,6 +49,20 @@ export default function SingleEvent() {
         setError(true);
       });
   };
+  
+  const handleSave = (newEvent) => {
+    axios
+      .patch(`${VITE_API_URL}/events/${id}`, newEvent, axiosOptions(token))
+      .then(() => {
+        setEvent(newEvent);
+      })
+      .catch(err => {
+        console.error(err);
+        setError(true);
+      });
+  };
+
+
 
   return (
     <div className='Back-Container'>
@@ -63,12 +77,12 @@ export default function SingleEvent() {
                 <span className="month">{dayjs(event.date).format('MMMM')}</span>
               </div>
             </div>
-            <hr className='hr-event'/>
+            <hr className='hr-event' />
             <h1>{event.title}</h1>
 
             <div className='description'>
-            <p>{event.description}</p>
-            <p>{event.more_info}</p>
+              <p>{event.description}</p>
+              <p>{event.more_info}</p>
             </div>
             <p>• {event.organizer_name}</p>
             <div className="location">
@@ -84,15 +98,10 @@ export default function SingleEvent() {
             <EditEventPopUp
               isOpen={editPopUpOpen}
               setIsOpen={(v) => { setEditPopUpOpen(v) }}
-              onSave={(newEvent) => {
-                if (newEvent.id !== event.id) {
-                  navigate(`/events/${newEvent.id}`);
-                  return;
-                }
-                setEvent(newEvent);
-              }}
+              onSave={handleSave}
               eventData={event}
             />
+
             <DeleteEventPopUp
               isOpen={deletePopUpOpen}
               onClose={() => setDeletePopUpOpen(false)}
