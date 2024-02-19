@@ -84,7 +84,7 @@ export default function SingleEvent() {
               <p>{event.description}</p>
               <p>{event.more_info}</p>
             </div>
-            <p>• {event.organizer_name}</p>
+            <p>{event.organizer_name}</p>
             <div className="location">
               <IoLocationSharp className="location-icon" />
               <p>{event.location}</p>

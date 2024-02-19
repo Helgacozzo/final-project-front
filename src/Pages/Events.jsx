@@ -119,7 +119,7 @@ export default function () {
                                 </div>
                                 <div className="event-details">
                                     <div className="title-wrapper">
-                                        <h2>{event.title}</h2>
+                                        <h4>{event.title}</h4>
                                         <Link key={event._id} to={`/events/${event._id}`} >
                                             <HiDotsHorizontal size={20} className="dots" />
                                         </Link>
