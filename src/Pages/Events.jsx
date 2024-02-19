@@ -61,7 +61,7 @@ export default function () {
                     title: '',
                     description: '',
                     more_info: '',
-                    organizer_name,
+                    organizer_name: '',
                     date: '',
                     time: '',
                     location: ''

@@ -7,10 +7,12 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData, error }) => {
     const [formData, setFormData] = useState({
         title: eventData.title,
         description: eventData.description,
+        organizer_name: eventData.organizer_name,
+        more_info: eventData.more_info,
         date: eventData.date,
         time: eventData.time,
         location: eventData.location
-    });
+    });    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
