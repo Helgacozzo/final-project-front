@@ -25,7 +25,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={!user ? <SignUser type='signup' /> : <Navigate to="/" />} />
                 <Route path="/login" element={!user ? <SignUser type='login' /> : <Navigate to="/" />} />
-                <Route path="/events/*" element={<Events />} />
+                <Route path="/events" element={<Events />} />
                 <Route path="/events/:id" element={<SingleEvent />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
