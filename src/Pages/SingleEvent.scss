@@ -4,86 +4,90 @@
   align-items: center;
   background: linear-gradient(#00000000 5%, #0000008a 10%, #000000d6 80%);
   backdrop-filter: blur(4px);
-  height: 100vh;
+  min-height: 100vh;
+}
 
-  .single-event-content {
-    color: white;
-    padding: 6rem;
+.single-event-content {
+  color: white;
+  padding: 6rem;
+  max-width: 800px;
+  width: 100%;
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 3rem;
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+
+    .location-icon {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
     }
+  }
 
-    .location {
-      display: inline-flex;
-      justify-content: center;
-      font-size: 1rem;
+  .button-container {
+    margin-top: 1rem;
 
-      .location-icon {
-        margin-right: 0.5rem;
-        font-size: 1.2rem;
-      }
-    }
-
-    .button-container {
-      margin-top: 1rem;
-
-      .organizer-button {
-        width: 100px;
-        padding: 4px 16px;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        border-radius: 4px;
-        text-align: center;
-        transition: background-color 0.3s, transform 0.3s;
-        background-color: rgb(207, 60, 114);
-        color: white;
-        border: none;
-        margin-right: 10px;
-        cursor: pointer;
-
-        &:hover {
-          background-color: rgba(207, 60, 114, 0.8);
-          transform: scale(1.05);
-        }
-      }
-    }
-
-    .hr-event {
-      border: 2px solid rgb(207, 60, 114);
-    }
-
-    .event-date-b {
-      display: block;
-      justify-content: center;
-      align-items: center;
+    .organizer-button {
+      width: 100px;
+      padding: 4px 16px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      border-radius: 4px;
       text-align: center;
-      margin-bottom: 1rem;
+      transition: background-color 0.3s, transform 0.3s;
+      background-color: rgb(207, 60, 114);
+      color: white;
+      border: none;
+      margin-right: 10px;
+      cursor: pointer;
 
-      .day {
-        font-size: 5rem;
-        font-weight: 800;
-        padding-top: 10px;
-      }
-
-      .month {
-        display: block;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        font-weight: 500;
-      }
-
-      .month,
-      .day {
-        color: white;
+      &:hover {
+        background-color: rgba(207, 60, 114, 0.8);
+        transform: scale(1.05);
       }
     }
+  }
 
-    .description {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 3rem;
+  .hr-event {
+    border: 2px solid rgb(207, 60, 114);
+  }
+
+  .event-date-b {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    .day {
+      font-size: 5rem;
+      font-weight: 800;
+      padding-top: 10px;
     }
+
+    .month {
+      display: block;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .month,
+    .day {
+      color: white;
+    }
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    text-align: justify;
   }
 }

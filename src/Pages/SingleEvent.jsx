@@ -82,6 +82,7 @@ export default function SingleEvent() {
 
             <div className='description'>
               <p>{event.description}</p>
+              <br />
               <p>{event.more_info}</p>
             </div>
             <p>{event.organizer_name}</p>

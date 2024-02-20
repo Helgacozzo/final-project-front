@@ -18,8 +18,8 @@ const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData,
           {error && <div className="error">{error}</div>}
           {user ? (
             <form onSubmit={(e) => {
-              e.preventDefault(); // Evita il comportamento predefinito del submit del form
-              handleSubmit(); // Chiama la funzione handleSubmit
+              e.preventDefault(); 
+              handleSubmit();
             }}>
               <label>Titolo:</label>
               <span>*</span>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useUser } from './context/UserContext';
+import AnimatedCursor from "react-animated-cursor"
 import Navbar from './Components/Navbar';
 import Sidebar from './Components/SideBar';
 import Home from './Pages/Home';
@@ -17,6 +18,7 @@ const App = () => {
 
     return (
         <>
+            <AnimatedCursor color='207, 60, 114'/>
             <Navbar />
             <Sidebar />
 

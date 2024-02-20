@@ -58,6 +58,8 @@ export default function () {
           <Menu className='menu' right isOpen={isMenuOpen} onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}>
             <a href="/" className="menu-item">Home</a>
             <hr />
+            <a href="/events" className="menu-item">Events</a>
+            <hr />
             <a href="/services" className="menu-item">Services</a>
             <hr />
             <a href="/contact" className="menu-item">Contact</a>
