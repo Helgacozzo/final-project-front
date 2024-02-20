@@ -49,10 +49,7 @@ export default function () {
 
     const handleSubmit = () => {
         axios.post(
-            `${VITE_API_URL}/events`,
-            { ...formData, organizerId: token.userId },
-            axiosOptions(token)
-        )
+            `${VITE_API_URL}/events`, formData, axiosOptions(token))
             .then(response => {
                 console.log(`Evento creato:`, response.data);
                 setEvents(prevEvents => [...prevEvents, response.data]);
@@ -105,7 +102,7 @@ export default function () {
                     <div><p>Non ci sono nuovi eventi.</p></div>}
 
                     <div className="event-grid">
-                        {events.map(event => (
+                        {events?.map(event => (
                             <div key={event._id} className="event-card">
                                 <div className="info-container">
                                     <div className="event-date">
