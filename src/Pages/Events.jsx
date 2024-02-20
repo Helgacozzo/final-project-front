@@ -96,38 +96,39 @@ export default function Events() {
                         handleChange={handleChange}
                         formData={formData} />
 
-                    {events.length === 0 && !error && 
-                    <div><p>Non ci sono nuovi eventi.</p></div>}
-
                     <div className="event-grid">
-                        {events.length > 0 && events.map(event => (
-                            <div key={event._id} className="event-card">
-                                <div className="info-container">
-                                    <div className="event-date">
-                                        <p className="day">{dayjs(event.date).format('DD')}</p>
-                                        <div className="month-year">
-                                            <p className="month">{dayjs(event.date).format('MMMM')}</p>
-                                            <p className="year">{dayjs(event.date).format('YYYY')}</p>
+                        {events.length > 0 ? (
+                            events.map(event => (
+                                <div key={event._id} className="event-card">
+                                    <div className="info-container">
+                                        <div className="event-date">
+                                            <p className="day">{dayjs(event.date).format('DD')}</p>
+                                            <div className="month-year">
+                                                <p className="month">{dayjs(event.date).format('MMMM')}</p>
+                                                <p className="year">{dayjs(event.date).format('YYYY')}</p>
+                                            </div>
+                                            <p className="event-time">{event.time}</p>
                                         </div>
-                                        <p className="event-time">{event.time}</p>
+                                    </div>
+                                    <div className="event-details">
+                                        <div className="title-wrapper">
+                                            <h4>{event.title}</h4>
+                                            <Link key={event._id} to={`/events/${event._id}`} >
+                                                <HiDotsHorizontal size={20} className="dots" />
+                                            </Link>
+                                        </div>
+                                        <p>{event.description}</p>
+                                        <div className="location">
+                                            <IoLocationSharp className="location-icon" />
+                                            <p>{event.location}</p>
+                                        </div>
+                                        <CounterParticipants eventId={event._id} />
                                     </div>
                                 </div>
-                                <div className="event-details">
-                                    <div className="title-wrapper">
-                                        <h4>{event.title}</h4>
-                                        <Link key={event._id} to={`/events/${event._id}`} >
-                                            <HiDotsHorizontal size={20} className="dots" />
-                                        </Link>
-                                    </div>
-                                    <p>{event.description}</p>
-                                    <div className="location">
-                                        <IoLocationSharp className="location-icon" />
-                                        <p>{event.location}</p>
-                                    </div>
-                                    <CounterParticipants eventId={event._id} />
-                                </div>
-                            </div>
-                        ))}
+                            ))
+                        ) : (
+                            <p>Non ci sono eventi disponibili al momento.</p>
+                        )}
                     </div>
                     {error && <p className="error">Si è verificato un errore: {error}</p>}
                 </div>
