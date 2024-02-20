@@ -14,8 +14,7 @@ import "./Events.scss";
 
 const { VITE_API_URL } = import.meta.env;
 
-export default function () {
-    
+export default function Events() {
     dayjs.locale('it');
     const { token } = useUser();
 
@@ -70,7 +69,6 @@ export default function () {
             });
     };
 
-
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -98,11 +96,11 @@ export default function () {
                         handleChange={handleChange}
                         formData={formData} />
 
-                    {(events.length === 0 && !error) && 
+                    {events.length === 0 && !error && 
                     <div><p>Non ci sono nuovi eventi.</p></div>}
 
                     <div className="event-grid">
-                        {events?.map(event => (
+                        {events.length > 0 && events.map(event => (
                             <div key={event._id} className="event-card">
                                 <div className="info-container">
                                     <div className="event-date">
