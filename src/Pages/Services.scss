@@ -8,41 +8,63 @@
 
 .title {
     text-align: center;
-    margin-bottom: 30px;
 }
+
+.divider {
+    width: 200px;
+    height: 2px;
+    margin: 10px auto 50px; 
+    background-color: rgb(207, 60, 114);
+    border: none;
+}
+
 
 .service-row {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap; 
+    gap: 2rem;
 }
 
 .service {
-    flex: 1;
-    padding: 20px;
+    flex: 0 1 300px;
     margin: 0 10px;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.81);
+    border: 1px solid white;
+    border-top: none; /* Rimuove il bordo bianco superiore */
     border-radius: 8px;
+    overflow: hidden; /* Nasconde eventuali overflow delle immagini */
+}
+
+.service img {
+    width: 100%; /* Imposta la larghezza dell'immagine al 100% del contenitore */
+    height: 300px; /* Imposta un'altezza fissa per le immagini */
+    object-fit: cover; /* Fai sì che l'immagine copra l'intero spazio del contenitore */
+    border-radius: 8px 8px 0 0; /* Arrotonda i bordi solo sopra */
 }
 
 .service h2 {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin: 25px 10px;
+    text-align: center;
 }
 
 .service p {
     font-size: 16px;
     line-height: 1.5;
+    text-align: center;
+    margin: 25px 10px;
 }
 
 
-// // MEDIA QUERIES
+
+
+// MEDIA QUERIES
 
 @media (max-width: 640px) {
-    .service-row {
-        flex-direction: column;
-    }
 
     .service {
-        margin: 0 0 20px;
+        flex-basis: calc(100% - 20px); 
+        margin: 0 0 20px; 
     }
 }

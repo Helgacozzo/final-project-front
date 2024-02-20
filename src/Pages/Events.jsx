@@ -127,7 +127,7 @@ export default function Events() {
                                 </div>
                             ))
                         ) : (
-                            <p>Non ci sono eventi disponibili al momento.</p>
+                            <p className="not-events">Non ci sono eventi disponibili al momento.</p>
                         )}
                     </div>
                     {error && <p className="error">Si è verificato un errore: {error}</p>}
