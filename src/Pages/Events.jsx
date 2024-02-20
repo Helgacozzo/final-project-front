@@ -15,13 +15,14 @@ import "./Events.scss";
 const { VITE_API_URL } = import.meta.env;
 
 export default function Events() {
+    
     dayjs.locale('it');
     const { token } = useUser();
 
     const [events, setEvents] = useState([]);
     const [error, setError] = useState();
     const [showOrganizerPopUp, setShowOrganizerPopUp] = useState(false);
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
 
     const [formData, setFormData] = useState({
         title: '',
@@ -37,7 +38,7 @@ export default function Events() {
         axios.get(`${VITE_API_URL}/events`, axiosOptions(token))
             .then(res => {
                 setEvents(res.data);
-                setLoading(false); 
+                setLoading(false);
             })
             .catch(err => {
                 console.error(err);
@@ -47,8 +48,7 @@ export default function Events() {
     }, []);
 
     const handleSubmit = () => {
-        axios.post(
-            `${VITE_API_URL}/events`, formData, axiosOptions(token))
+        axios.post(`${VITE_API_URL}/events`, formData, axiosOptions(token))
             .then(response => {
                 console.log(`Evento creato:`, response.data);
                 setEvents(prevEvents => [...prevEvents, response.data]);
@@ -78,7 +78,7 @@ export default function Events() {
 
     return (
         <>
-            {loading && <Preloader />} 
+            {loading && <Preloader />}
 
             <div className="Background-Container">
                 <div className="events-container">
@@ -97,7 +97,7 @@ export default function Events() {
                         formData={formData} />
 
                     <div className="event-grid">
-                        {events.length > 0 ? (
+                        {Array.isArray(events) && events.length > 0 ? (
                             events.map(event => (
                                 <div key={event._id} className="event-card">
                                     <div className="info-container">
