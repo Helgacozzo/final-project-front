@@ -28,7 +28,7 @@ const CounterParticipants = ({ eventId }) => {
     return (
 
         <div className='btn-container'>
-
+            
             <div>
                 <button className="participate-button" onClick={increment}>Partecipa</button>
                 <button className="not-button" onClick={decrement}>Annulla</button>

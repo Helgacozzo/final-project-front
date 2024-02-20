@@ -1,0 +1,48 @@
+.services-container {
+    margin: 0 auto;
+    padding: 7rem 5rem;
+    background: linear-gradient(#00000000 5%, #0000008a 10%, #000000d6 80%);
+    backdrop-filter: blur(4px);
+    height: 100vh;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.service-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.service {
+    flex: 1;
+    padding: 20px;
+    margin: 0 10px;
+    background-color: #000000;
+    border-radius: 8px;
+}
+
+.service h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+// // MEDIA QUERIES
+
+@media (max-width: 640px) {
+    .service-row {
+        flex-direction: column;
+    }
+
+    .service {
+        margin: 0 0 20px;
+    }
+}

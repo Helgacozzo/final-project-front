@@ -14,7 +14,7 @@ import "./Events.scss";
 
 const { VITE_API_URL } = import.meta.env;
 
-export default function Events() {
+export default function () {
     
     dayjs.locale('it');
     const { token } = useUser();
