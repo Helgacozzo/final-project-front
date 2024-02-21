@@ -1,5 +1,5 @@
+import axios from "axios";
 import { createContext, useContext, useState } from "react";
-import axios from '../lib/axiosConfig';
 
 const { VITE_API_URL } = import.meta.env;
 

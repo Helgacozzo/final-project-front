@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { IoLocationSharp } from "react-icons/io5";
 import { useUser } from "../context/UserContext.jsx";
-import { axiosOptions } from "../lib/utilities.js";
 import { Link } from "react-router-dom";
 import OrganizerPopUp from "../Components/OrganizerPopUp.jsx";
 import CounterParticipants from "../Components/CounterParticipants.jsx";
 import Preloader from '../Components/Preloader.jsx';
-import axios from '../lib/axiosConfig';
+import axios from "axios";
+import { axiosOptions } from '../lib/utilities.js'
 import dayjs from 'dayjs';
 import 'dayjs/locale/it';
 import "./Events.scss";
@@ -17,6 +17,7 @@ const { VITE_API_URL } = import.meta.env;
 export default function Events() {
 
     dayjs.locale('it');
+    
     const { token } = useUser();
 
     const [events, setEvents] = useState([]);
@@ -40,7 +41,7 @@ export default function Events() {
                 setEvents(res.data);
                 setLoading(false);
             })
-            .catch(err => {
+            .catch((err) => {
                 console.error(err);
                 setError(err.message);
                 setLoading(false);
