@@ -7,7 +7,7 @@ import EditEventPopUp from '../Components/EditEventPopUp.jsx';
 import DeleteEventPopUp from '../Components/DeleteEventPopUp.jsx';
 import NotFound from './NotFound.jsx';
 import Preloader from '../Components/Preloader.jsx';
-import axios from 'axios';
+import axios from '../lib/axiosConfig';
 import dayjs from 'dayjs';
 import 'dayjs/locale/it';
 import './SingleEvent.scss';

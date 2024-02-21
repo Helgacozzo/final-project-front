@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import OrganizerPopUp from "../Components/OrganizerPopUp.jsx";
 import CounterParticipants from "../Components/CounterParticipants.jsx";
 import Preloader from '../Components/Preloader.jsx';
-import axios from "axios";
+import axios from '../lib/axiosConfig';
 import dayjs from 'dayjs';
 import 'dayjs/locale/it';
 import "./Events.scss";
