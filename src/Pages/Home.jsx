@@ -9,16 +9,12 @@ export default function () {
 
         <div className='home-container'>
 
-            <div className="jumbotron">
-
                 <img src={Logo} alt="Ethereal" />
                 <h2 className='title'>Your spiritual Experiences</h2>
 
                 <div>
                     <a href="/events"><button className='button-home'>Go to Events<FaLongArrowAltRight size={20} className='fa-arrow-right' /></button></a>
                 </div>
-
-            </div>
 
         </div>
 
