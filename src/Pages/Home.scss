@@ -1,21 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
-
-.container {
+.home-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 
-    >img {
+    .jumbotron {
+        margin-top: 50px;
         width: 70%;
-        margin-right: 80px;
+        text-align: center;
     }
 
     .title {
-        font-size: 120%;
-        font-family: "Julius Sans One", sans-serif;
+        font-size: 2rem;
+        font-family: "Julius Sans One", sans-serif, Arial, Helvetica, sans-serif;
         text-align: center;
+
+        @media (max-width: 640px) {
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
     }
 
     .button-home {
@@ -27,7 +31,7 @@
         border: 1px solid white;
         padding: 15px 20px;
         border-radius: 20px;
-        margin-top: 50px;
+        margin-top: 20px;
         background-color: rgba(0, 0, 0, 0.548);
         backdrop-filter: blur(4px);
         box-shadow: 0 4px 6px rgba(7, 1, 23, 0.358);
@@ -38,45 +42,21 @@
         .fa-arrow-right {
             transition: transform 0.3s ease-in-out;
         }
+    }
 
-        &:hover {
-            background-color: rgba(180, 55, 101, 0.548);
-            backdrop-filter: blur(4px);
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.358);
-            transform: scale(1.05);
+    .button-container {
+        display: flex;
+        justify-content: center;
+    }
 
-            .fa-arrow-right {
-                transform: translateX(5px);
-            }
+    .button-home:hover {
+        background-color: rgba(180, 55, 101, 0.548);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.358);
+        transform: scale(1.05);
+
+        .fa-arrow-right {
+            transform: translateX(5px);
         }
     }
-}
-
-
-
-// MEDIA QUERIES
-
-@media (max-width: 960px) {
-
-    .container>img {
-        width: 80%;
-    }
-
-    .title {
-        font-size: 0.5rem;
-    }
-
-}
-
-@media screen and (max-width: 640px) {
-
-    .container>img {
-        width: 80%;
-        margin-left: 35px;
-    }
-
-    .title {
-        font-size: 0.5rem;
-    }
-    
 }

@@ -8,7 +8,7 @@ export default function() {
     return (
         <div className="page-container">
             <div className="contact-container">
-                <h1 className="title">Contatti</h1>
+                <h1 className="title">Contacts</h1>
                 <div className="contact-info">
                     <div className="info-item">
                     <IoLocationSharp className="contact-icon" size={30}/>

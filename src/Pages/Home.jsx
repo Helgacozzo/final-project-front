@@ -7,13 +7,17 @@ export default function () {
 
     return (
 
-        <div className='container'>
+        <div className='home-container'>
 
-            <img src={Logo} alt="Ethereal" />
-            <h2 className='title'>Your spiritual Experiences</h2>
+            <div className="jumbotron">
 
-            <div>
-                <a href="/events"><button className='button-home'>Go to Events<FaLongArrowAltRight size={20} className='fa-arrow-right' /></button></a>
+                <img src={Logo} alt="Ethereal" />
+                <h2 className='title'>Your spiritual Experiences</h2>
+
+                <div>
+                    <a href="/events"><button className='button-home'>Go to Events<FaLongArrowAltRight size={20} className='fa-arrow-right' /></button></a>
+                </div>
+
             </div>
 
         </div>

@@ -5,7 +5,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useUser } from '../context/UserContext';
 import { Link, useNavigate } from "react-router-dom";
-import Logo from '../assets/LogoPittogramma.svg';
+import Logo from '../assets/LogoIcon.svg';
 import './Navbar.scss';
 
 
@@ -62,7 +62,7 @@ export default function () {
             <hr />
             <a href="/services" className="menu-item">Services</a>
             <hr />
-            <a href="/contact" className="menu-item">Contact</a>
+            <a href="/contact" className="menu-item">Contacts</a>
             <hr />
           </Menu>
         </div>
