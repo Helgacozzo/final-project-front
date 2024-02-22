@@ -41,13 +41,17 @@
 // // MEDIA QUERIES
 
 @media (max-width: 960px) {
+
   .sidebar {
     width: 0;
   }
+
 }
 
 @media screen and (max-width: 640px) {
+
   .sidebar {
     width: 0;
   }
+  
 }

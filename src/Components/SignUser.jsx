@@ -71,15 +71,20 @@ const SignUser = ({ type }) => {
   
 
   return (
+
     <div className='Background-Container'>
+
       <div className='form-content'>
         <h2 className='subtitle'>{title}</h2>
+
         <div className='user-icon-wrapper'>
           <hr />
           <FaCircleUser className='user-icon' size={70} />
           <hr />
         </div>
+
         {error && <div className="error">{error}</div>}
+
         <form onSubmit={handleSignUser}>
           <div>
             <label>Email:</label>
@@ -136,11 +141,16 @@ const SignUser = ({ type }) => {
           )}
           <button className='User-button' type="submit">{title}</button>
         </form>
-        <p>{type === 'login' ? 'Non hai un account?   ' : 'Hai già un account?   '}
+
+        <p className='account-text'>{type === 'login' ? 'Non hai un account?   ' : 'Hai già un account?   '}
           <Link className='link' to={`/${oppositeType}`}>{type === 'login' ? 'Registrati' : 'Accedi'}</Link></p>
+
       </div>
+
     </div>
+
   );
+  
 };
 
 export default SignUser;

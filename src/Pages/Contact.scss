@@ -54,6 +54,7 @@
 // // MEDIA QUERIES
 
 @media (max-width: 640px) {
+
     .contact-info {
         flex-direction: column;
         gap: 2rem;
@@ -62,4 +63,5 @@
     .info-item {
         margin: 10px 0;
     }
+
 }

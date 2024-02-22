@@ -3,29 +3,22 @@
     backdrop-filter: blur(4px);
 }
 
-.title-wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding-right: 10px;
-
-    h4 {
-        margin-top: 0;
-        color: white;
-        text-transform: uppercase;
-        padding-bottom: 20px;
-        font-size: 1.2rem;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
+h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 
 .event-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
 }
 
 .events-container {
@@ -36,34 +29,27 @@
     height: calc(100vh - 50px);
     overflow-y: auto;
 
-    .info-container {
-        background-color: white;
-    }
-
     h1 {
         color: white;
         text-transform: uppercase;
         font-size: 3rem;
         text-align: center;
-        margin: 50px;
+        margin: 50px auto;
     }
 }
 
 .event-card {
     position: relative;
-    display: flex;
     gap: 1rem;
-    width: 100%;
-    padding-right: 30px;
     background-color: rgba(0, 0, 0, 0.81);
     border: 1px solid white;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.115);
-    border-radius: 0 8px 8px 0;
-    height: 230px;
+    border-radius: 8px;
 
     p {
         color: #ffffff;
         font-size: 0.9rem;
+        padding-right: 50px;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
@@ -71,54 +57,62 @@
     }
 }
 
-.event-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    .day {
-        font-size: 4rem;
-        font-weight: 800;
-        padding-top: 10px;
-    }
-
-    .month {
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        font-weight: 500;
-    }
-
-    .year {
-        font-size: 2rem;
-    }
-
-    .month,
-    .day,
-    .year {
-        color: black;
-    }
-}
-
-.event-time {
-    background-color: rgb(207, 60, 114);
-    color: white;
-    margin-top: 30px;
-    text-align: center;
-    padding: 22px 50px;
-    display: flex;
-}
-
 .event-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 25px;
+    padding: 30px 30px 20px 30px;
     flex-grow: 1;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     overflow: hidden;
+}
+
+.event-date {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 30px 30px 30px;
+    width: 100%;
+
+    .day,
+    .month,
+    .year {
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+
+    .day {
+        font-size: 6rem;
+        font-weight: 900;
+        color: rgb(207, 60, 114);
+    }
+
+    .month {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 900;
+    }
+
+    .year {
+        text-transform: uppercase;
+        font-size: 2.6rem;
+        font-weight: 900;
+    }
+
+    .event-time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 900;
+        background-color: rgb(207, 60, 114);
+        padding: 20px;
+        border-radius: 8px;
+
+    }
+
 }
 
 .location {
@@ -160,7 +154,7 @@
 
 .dots {
     position: absolute;
-    top: 10px; 
+    top: 5px;
     right: 10px;
     color: white;
     cursor: pointer;
@@ -171,7 +165,7 @@
     }
 }
 
-.not-events{
+.not-events {
     text-align: center;
     color: rgb(207, 60, 114);
 }
@@ -180,13 +174,25 @@
 // MEDIA QUERIES
 
 @media (max-width: 960px) {
+
+    .event-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     .events-container {
         padding: 4rem;
     }
+
 }
 
 @media (max-width: 640px) {
+
+    .event-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     .events-container {
         padding: 2rem;
     }
+
 }

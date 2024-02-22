@@ -24,6 +24,11 @@
     padding-bottom: 20px;
 }
 
+.account-text {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
 .user-icon-wrapper {
     display: flex;
     justify-content: center;
@@ -97,13 +102,17 @@
 // MEDIA QUERIES
 
 @media (max-width: 960px) {
+
     .form-content {
         margin-left: 155px;
     }
+
 }
 
 @media (max-width: 640px) {
+
     .form-content {
         margin: 100px;
     }
+    
 }

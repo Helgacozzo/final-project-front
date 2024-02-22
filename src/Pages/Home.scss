@@ -57,6 +57,7 @@
 // MEDIA QUERIES
 
 @media (max-width: 960px) {
+
     .container>img {
         width: 80%;
     }
@@ -64,15 +65,18 @@
     .title {
         font-size: 0.5rem;
     }
+
 }
 
 @media screen and (max-width: 640px) {
+
     .container>img {
         width: 80%;
-        margin-right: 40px;
+        margin-left: 35px;
     }
 
     .title {
         font-size: 0.5rem;
     }
+    
 }

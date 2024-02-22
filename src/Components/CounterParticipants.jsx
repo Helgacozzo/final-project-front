@@ -34,7 +34,7 @@ const CounterParticipants = ({ eventId }) => {
                 <button className="not-button" onClick={decrement}>Annulla</button>
             </div>
 
-            <div>
+            <div className='participants'>
                 <h5>{count} <IoPersonSharp size={10} /></h5>
             </div>
 

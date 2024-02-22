@@ -6,6 +6,7 @@
     .participate-button,
     .not-button {
       display: inline-block;
+      margin-bottom: 1rem;
       width: 100px;
       padding: 4px 16px;
       font-size: 0.7rem;
@@ -38,9 +39,17 @@
         transform: scale(1.05);
       }
     }
+
+    .participants h5{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2px;
+    }
   
     h5 {
       color: white;
       padding-left: 10px;
+      margin-bottom: 0.9rem;
     }
   }

@@ -14,11 +14,13 @@ import SignUser from './Components/SignUser';
 import "./App.scss";
 
 const App = () => {
+
     const { user } = useUser();
+    const isMobile = window.innerWidth <= 768;
 
     return (
         <>
-            <AnimatedCursor color='207, 60, 114'/>
+            {!isMobile && <AnimatedCursor color='207, 60, 114' />}
             <Navbar />
             <Sidebar />
 

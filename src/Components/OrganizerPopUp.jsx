@@ -11,11 +11,16 @@ const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData,
   return (
 
     isOpen && (
+
       <div className="popup-container">
+
         <div className="popup-content">
+
           <span className="close" onClick={onClose}>X</span>
           <h2>{user ? "Crea un nuovo evento" : "Vuoi creare un nuovo evento?"}</h2>
+
           {error && <div className="error">{error}</div>}
+
           {user ? (
             <form onSubmit={(e) => {
               e.preventDefault(); 
@@ -89,11 +94,14 @@ const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData,
           ) : (
             <p className="paragraph">Per creare un evento, effettua il
               <Link className="link" to="/login"> login</Link> o
-              <Link className="link" to="/signup"> registrati</Link>
-              .</p>
+              <Link className="link" to="/signup"> registrati</Link>.
+            </p>
           )}
+
         </div>
+
       </div>
+      
     )
 
   );
