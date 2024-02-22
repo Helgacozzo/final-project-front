@@ -119,7 +119,7 @@ export default function Events() {
 
                                     <div className="event-details">
 
-                                        <div>
+                                        <div className="title-wrapper">
                                             <h4>{event.title}</h4>
                                             <Link key={event._id} to={`/events/${event._id}`} >
                                                 <HiDotsHorizontal size={20} className="dots" />
@@ -140,7 +140,9 @@ export default function Events() {
                                 </div>
                             ))
                         ) : (
-                            <p className="not-events">Non ci sono eventi disponibili al momento.</p>
+                            <div className="not-events-container">
+            <p className="not-events">Non ci sono eventi disponibili al momento.</p>
+        </div>
                         )}
                     </div>
                     {error && <p className="error">Si è verificato un errore: {error}</p>}
@@ -151,5 +153,5 @@ export default function Events() {
         </>
 
     );
-
+    
 }

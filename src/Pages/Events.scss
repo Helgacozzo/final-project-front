@@ -165,8 +165,16 @@ h4 {
     }
 }
 
-.not-events {
+.not-events-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; 
     text-align: center;
+}
+
+.not-events {
     color: rgb(207, 60, 114);
 }
 
