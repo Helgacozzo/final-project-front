@@ -5,19 +5,25 @@ import { useUser } from '../context/UserContext';
 import { isEmail, isStrongPassword } from 'validator';
 import "./SignUser.scss";
 
+
 const SignUser = ({ type }) => {
-  
+
+  // Definizione del titolo in base al tipo di operazione (login o signup)
   const title = type === 'login' ? 'Log In' : 'Sign Up';
+  // Definizione del tipo opposto per il link (se è in signup, mostra il link per il login e viceversa)
   const oppositeType = type === 'login' ? 'signup' : 'login';
 
-  const { signUp, logIn, error} = useUser();
+  // Utilizzo del contesto utente per ottenere le funzioni di registrazione e accesso
+  const { signUp, logIn, error } = useUser();
 
+  // State per memorizzare i dati del form e gestirne i cambiamenti
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: ''
   });
 
+  // Funzione per gestire i cambiamenti nei campi del form
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -25,50 +31,57 @@ const SignUser = ({ type }) => {
     });
   };
 
+  // State per memorizzare gli eventuali errori nei campi del form
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  // Funzione per gestire il submit del form (login o signup)
   const handleSignUser = async (e) => {
     e.preventDefault();
     setConfirmPasswordError('');
     setEmailError('');
     setPasswordError('');
-  
+
     const { email, password, confirmPassword } = formData;
     try {
       if (type === 'signup') {
+        // Validazione dell'email
         if (!isEmail(email)) {
           setEmailError(`Dovresti inserire una email reale.`);
           return;
         }
-  
+
+        // Validazione della password
         if (!isStrongPassword(password)) {
           setPasswordError(`La Password non corrisponde ai requisiti richiesti.`);
           return;
         }
-  
+
+        // Controllo della conferma della password
         if (password !== confirmPassword) {
           setConfirmPasswordError('La password non corrisponde.');
           return;
         }
-  
+
+        // Registrazione dell'utente
         await signUp(email, password);
       }
-  
+
       if (type === 'login') {
+        // Validazione email e password per il login
         if (!isEmail(email) || !isStrongPassword(password)) {
           setEmailError('Email o password non valide.');
           return;
         }
-        
+
+        // Login dell'utente
         await logIn(email, password);
       }
     } catch (error) {
       console.error(`Errore durante l'autenticazione:`, error);
     }
   };
-  
 
   return (
 
@@ -150,7 +163,7 @@ const SignUser = ({ type }) => {
     </div>
 
   );
-  
+
 };
 
 export default SignUser;

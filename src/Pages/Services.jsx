@@ -4,12 +4,13 @@ import coachingImg from '../assets/coaching.jpg';
 import tarocchiImg from '../assets/tarocchi.jpg';
 import './Services.scss';
 
+
 export default function() {
 
     return (
 
         <div className="services-container">
-            <h1 className="title">I Nostri Servizi</h1>
+            <h1 className="title">Services</h1>
             <hr className="divider" />
 
             <div className="service-row">

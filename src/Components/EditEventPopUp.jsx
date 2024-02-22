@@ -4,6 +4,7 @@ import "./PopUp.scss";
 
 const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData, error }) => {
 
+    // Definizione dello stato per i dati del modulo di modifica
     const [formData, setFormData] = useState({
         title: eventData.title,
         description: eventData.description,
@@ -12,8 +13,9 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData, error }) => {
         date: eventData.date,
         time: eventData.time,
         location: eventData.location
-    });    
+    });
 
+    // Funzione per gestire il cambio dei valori nei campi del modulo di modifica
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -22,6 +24,7 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData, error }) => {
         });
     };
 
+    // Funzione per gestire l'invio del modulo di modifica
     const handleSubmit = (e) => {
         e.preventDefault();
         onSave({
@@ -31,15 +34,20 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData, error }) => {
         setIsOpen(false);
     };
 
+    // Rendering del componente solo se isOpen è true
     return (
 
         isOpen && (
+
             <div className="popup-container">
                 <div className="popup-content">
                     <span className="close" onClick={() => setIsOpen(false)}>X</span>
                     <h2>Modifica Evento</h2>
+
                     {error && <div className="error">{error}</div>}
+
                     <form onSubmit={handleSubmit}>
+
                         <label>Titolo:</label>
                         <span>*</span>
                         <input
@@ -103,16 +111,12 @@ const EditEventPopUp = ({ isOpen, setIsOpen, onSave, eventData, error }) => {
                             onChange={handleChange}
                             required
                         />
-
                         <button type="submit">Salva Modifiche</button>
                     </form>
-
                 </div>
             </div>
         )
-
     );
-
 };
 
 export default EditEventPopUp;

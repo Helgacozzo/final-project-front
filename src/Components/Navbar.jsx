@@ -11,11 +11,16 @@ import './Navbar.scss';
 
 export default function () {
 
+  // Utilizzo del hook useNavigate per la navigazione
   const navigate = useNavigate();
+
+  // Utilizzo del contesto utente per gestire lo stato dell'utente e il logout
   const { user, logOut } = useUser();
 
+  // Definizione dello stato per gestire l'apertura e la chiusura del menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Funzione per gestire l'apertura e la chiusura del menu
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -54,24 +59,24 @@ export default function () {
           ) : (
             <FaBars className='menu-icon' size={18} onClick={handleMenuToggle} />
           )}
-           <div className="menu-overlay">
-          <Menu className='menu' right isOpen={isMenuOpen} onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}>
-            <a href="/" className="menu-item">Home</a>
-            <hr />
-            <a href="/events" className="menu-item">Events</a>
-            <hr />
-            <a href="/services" className="menu-item">Services</a>
-            <hr />
-            <a href="/contact" className="menu-item">Contacts</a>
-            <hr />
-          </Menu>
+          <div className="menu-overlay">
+            <Menu className='menu' right isOpen={isMenuOpen} onStateChange={({ isOpen }) => setIsMenuOpen(isOpen)}>
+              <a href="/" className="menu-item">Home</a>
+              <hr />
+              <a href="/events" className="menu-item">Events</a>
+              <hr />
+              <a href="/services" className="menu-item">Services</a>
+              <hr />
+              <a href="/contact" className="menu-item">Contacts</a>
+              <hr />
+            </Menu>
+          </div>
         </div>
-        </div>
-       
+
       </div>
 
     </nav>
 
   );
-  
+
 }

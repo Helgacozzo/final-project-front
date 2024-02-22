@@ -6,6 +6,7 @@ import "./PopUp.scss";
 
 const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData, error }) => {
 
+  // Utilizzo del contesto utente per ottenere le informazioni sull'utente loggato
   const { user } = useUser();
 
   return (
@@ -23,7 +24,7 @@ const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData,
 
           {user ? (
             <form onSubmit={(e) => {
-              e.preventDefault(); 
+              e.preventDefault();
               handleSubmit();
             }}>
               <label>Titolo:</label>
@@ -92,6 +93,7 @@ const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData,
               <button type="submit">Crea Evento</button>
             </form>
           ) : (
+            // Se l'utente non è loggato, mostra un messaggio e dei link per il login o la registrazione
             <p className="paragraph">Per creare un evento, effettua il
               <Link className="link" to="/login"> login</Link> o
               <Link className="link" to="/signup"> registrati</Link>.
@@ -101,7 +103,7 @@ const OrganizerPopUp = ({ isOpen, onClose, handleSubmit, handleChange, formData,
         </div>
 
       </div>
-      
+
     )
 
   );

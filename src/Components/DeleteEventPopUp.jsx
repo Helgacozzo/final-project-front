@@ -11,7 +11,6 @@ const DeleteEventPopUp = ({ isOpen, onClose, onDelete, error }) => {
       <div className="popup-container">
 
         <div className="popup-content">
-
           <span className="close" onClick={onClose}>X</span>
           <h3>Sei sicuro di voler cancellare l'evento?</h3>
 
@@ -21,11 +20,10 @@ const DeleteEventPopUp = ({ isOpen, onClose, onDelete, error }) => {
             <button onClick={onClose}>Annulla</button>
             <button className="delete-button" onClick={onDelete}>Cancella</button>
           </div>
-
         </div>
 
       </div>
-      
+
     )
 
   );

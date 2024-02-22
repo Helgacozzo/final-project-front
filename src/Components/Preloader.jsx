@@ -1,7 +1,8 @@
 import React from 'react';
 import './Preloader.scss';
 
-export default function (){
+
+export default function () {
 
   return (
 
@@ -10,5 +11,5 @@ export default function (){
     </div>
 
   );
-  
+
 };

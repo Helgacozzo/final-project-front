@@ -13,13 +13,17 @@ import Contact from './Pages/Contact';
 import SignUser from './Components/SignUser';
 import "./App.scss";
 
+
 const App = () => {
 
+    // Ottiene lo stato dell'utente dal contesto
     const { user } = useUser();
+    // Verifica se l'applicazione è in modalità mobile
     const isMobile = window.innerWidth <= 768;
 
     return (
         <>
+            {/* Visualizza il cursore animato solo se non è in modalità mobile */}
             {!isMobile && <AnimatedCursor color='207, 60, 114' />}
             <Navbar />
             <Sidebar />

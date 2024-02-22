@@ -1,5 +1,6 @@
 import "./NotFound.scss";
 
+
 export default function () {
 
     return (

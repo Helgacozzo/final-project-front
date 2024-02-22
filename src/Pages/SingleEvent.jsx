@@ -14,17 +14,26 @@ import './SingleEvent.scss';
 
 const { VITE_API_URL } = import.meta.env;
 
-export default function SingleEvent() {
+
+export default function () {
+
+  // Estrae user e token dal contesto dell'utente
   const { user, token } = useUser();
+  // Estrae l'ID dell'evento dai parametri della route
   const { id } = useParams();
+  // Ottiene la funzione di navigazione per la gestione delle route
   const navigate = useNavigate();
 
+  // Stati per i dettagli dell'evento, il caricamento, e gli errori
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  // Stati per controllare l'apertura dei popup di modifica ed eliminazione dell'evento
   const [editPopUpOpen, setEditPopUpOpen] = useState(false);
   const [deletePopUpOpen, setDeletePopUpOpen] = useState(false);
 
+  // Effetto per ottenere i dettagli dell'evento quando l'id del percorso cambia o il token dell'utente cambia
   useEffect(() => {
     axios.get(`${VITE_API_URL}/events/${id}`, axiosOptions(token))
       .then(res => {
@@ -38,6 +47,7 @@ export default function SingleEvent() {
       });
   }, [id, token]);
 
+  // Funzione per gestire l'eliminazione dell'evento
   const handleDelete = () => {
     axios
       .delete(`${VITE_API_URL}/events/${id}`, axiosOptions(token))
@@ -49,7 +59,8 @@ export default function SingleEvent() {
         setError(true);
       });
   };
-  
+
+  // Funzione per gestire il salvataggio delle modifiche all'evento
   const handleSave = (newEvent) => {
     axios
       .patch(`${VITE_API_URL}/events/${id}`, newEvent, axiosOptions(token))
@@ -62,12 +73,14 @@ export default function SingleEvent() {
       });
   };
 
-
-
   return (
+
     <div className='Back-Container'>
+
       <div className="single-event-content">
+        {/* Visualizza un preloader durante il caricamento */}
         {loading && <Preloader />}
+        {/* Visualizza una pagina 404 se si verifica un errore */}
         {error && <NotFound />}
         {event && (
           <>
@@ -79,7 +92,6 @@ export default function SingleEvent() {
             </div>
             <hr className='hr-event' />
             <h1>{event.title}</h1>
-
             <div className='description'>
               <p>{event.description}</p>
               <br />
@@ -90,12 +102,14 @@ export default function SingleEvent() {
               <IoLocationSharp className="location-icon" />
               <p>{event.location}</p>
             </div>
+            {/* Se l'utente è autenticato, visualizza i pulsanti per modificare ed eliminare l'evento */}
             {user && (
               <div className="button-container">
                 <button className="organizer-button" onClick={() => setEditPopUpOpen(true)}>Modifica</button>
                 <button className="organizer-button" onClick={() => setDeletePopUpOpen(true)}>Elimina</button>
               </div>
             )}
+
             <EditEventPopUp
               isOpen={editPopUpOpen}
               setIsOpen={(v) => { setEditPopUpOpen(v) }}
@@ -111,6 +125,7 @@ export default function SingleEvent() {
           </>
         )}
       </div>
+
     </div>
   );
 }
